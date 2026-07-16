@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pantonera Digital IA — Todos los sistemas de color</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{--bg:#0f0f12;--s1:#1a1a20;--s2:#22222a;--bd:#2e2e38;--ac:#e8c840;--tx:#e8e8f0;--tm:#7878a0;--td:#4a4a68;--gn:#40c880;--rd:#e84060;--bl:#4080e8;--pu:#a060e8;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--tx);font-family:Inter,sans-serif;min-height:100vh;font-size:14px;}
+/* NAV */
+.nav{background:var(--s1);border-bottom:1px solid var(--bd);display:flex;align-items:center;position:sticky;top:0;z-index:200;}
+.logo{padding:11px 15px;font-weight:700;font-size:13px;border-right:1px solid var(--bd);display:flex;align-items:center;gap:7px;flex-shrink:0;}
+.lm{width:24px;height:24px;background:var(--ac);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#000;}
+.tabs{display:flex;flex:1;overflow-x:auto;scrollbar-width:none;}
+.tabs::-webkit-scrollbar{display:none;}
+.tab{padding:13px 15px;font-size:11px;font-weight:500;cursor:pointer;border-bottom:2px solid transparent;color:var(--tm);white-space:nowrap;transition:all .2s;border-right:1px solid var(--bd);}
+.tab:hover{color:var(--tx);background:var(--s2);}
+.tab.on{color:var(--ac);border-bottom-color:var(--ac);background:var(--bg);}
+/* PAGES */
+.pg{display:none;}.pg.on{display:flex;}
+/* PAGE 1 */
+#p1{flex-direction:row;min-height:calc(100vh - 49px);}
+.sb{width:256px;min-width:256px;background:var(--s1);border-right:1px solid var(--bd);display:flex;flex-direction:column;overflow:hidden;}
+.sx{padding:7px;border-bottom:1px solid var(--bd);}
+.sx input{width:100%;background:var(--bg);border:1px solid var(--bd);border-radius:5px;padding:6px 9px;color:var(--tx);font-family:'JetBrains Mono',monospace;font-size:11px;outline:none;}
+.sx input:focus{border-color:var(--ac);}
+.sx input::placeholder{color:var(--td);}
+/* Filtros sistema */
+.sys-filter{display:flex;gap:3px;padding:5px 7px;border-bottom:1px solid var(--bd);flex-wrap:wrap;}
+.sb-btn{padding:2px 7px;border-radius:12px;border:1px solid var(--bd);background:transparent;color:var(--tm);font-size:9px;cursor:pointer;transition:all .15s;white-space:nowrap;}
+.sb-btn.on,.sb-btn:hover{background:var(--ac);color:#000;border-color:var(--ac);font-weight:700;}
+.fam-filter{display:flex;gap:3px;padding:4px 7px;border-bottom:1px solid var(--bd);overflow-x:auto;scrollbar-width:none;flex-wrap:wrap;max-height:72px;overflow-y:auto;}
+.cnt{padding:3px 9px;font-size:9px;color:var(--td);border-bottom:1px solid var(--bd);}
+.cl{overflow-y:auto;flex:1;scrollbar-width:thin;scrollbar-color:var(--bd) transparent;}
+.ci{display:flex;align-items:center;gap:7px;padding:5px 9px;cursor:pointer;border-bottom:1px solid rgba(255,255,255,.03);transition:background .1s;}
+.ci:hover,.ci.on{background:var(--s2);}
+.ci.on{border-left:2px solid var(--ac);}
+.sw{width:22px;height:22px;border-radius:3px;flex-shrink:0;border:1px solid rgba(255,255,255,.07);}
+.cif{flex:1;min-width:0;}
+.cn{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.cf{font-size:9px;color:var(--tm);}
+.cs{font-size:8px;padding:1px 4px;border-radius:3px;font-weight:700;margin-top:1px;display:inline-block;}
+/* DETAIL */
+.mp{flex:1;overflow-y:auto;padding:18px;background:var(--bg);}
+.wb{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:380px;text-align:center;color:var(--tm);}
+.wb .ws{width:60px;height:60px;border-radius:12px;background:linear-gradient(135deg,#e84060,#e8c840 50%,#40c880);margin-bottom:12px;opacity:.55;}
+.dp{display:none;}.dp.on{display:block;}
+.ch{display:grid;grid-template-columns:130px 1fr;gap:12px;margin-bottom:16px;background:var(--s1);border-radius:9px;padding:13px;border:1px solid var(--bd);}
+.hs{border-radius:7px;min-height:112px;border:1px solid rgba(255,255,255,.07);}
+.pb{font-size:8px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--tm);margin-bottom:2px;}
+.pn{font-family:'JetBrains Mono',monospace;font-size:19px;font-weight:700;line-height:1;margin-bottom:3px;}
+.pf{font-size:11px;color:var(--tm);margin-bottom:8px;}
+.hr{display:flex;gap:5px;flex-wrap:wrap;}
+.ht{background:var(--bg);border:1px solid var(--bd);border-radius:3px;padding:3px 6px;font-family:'JetBrains Mono',monospace;font-size:10px;cursor:pointer;transition:border-color .15s;}
+.ht:hover{border-color:var(--ac);}
+.sec{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1.2px;color:var(--tm);margin:13px 0 7px;display:flex;align-items:center;gap:6px;}
+.sec::after{content:'';flex:1;height:1px;background:var(--bd);}
+.fc{background:var(--s1);border:1px solid var(--bd);border-radius:7px;padding:11px;margin-bottom:10px;}
+.fl{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--ac);margin-bottom:7px;}
+.ir{display:flex;align-items:center;gap:6px;margin-bottom:5px;}
+.id{width:10px;height:10px;border-radius:50%;flex-shrink:0;border:1px solid rgba(255,255,255,.1);}
+.in{flex:1;font-size:10px;}
+.ib{flex:1;height:3px;background:var(--bd);border-radius:2px;overflow:hidden;max-width:55px;}
+.ibf{height:100%;border-radius:2px;}
+.ip{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--ac);width:46px;text-align:right;}
+.ipc{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--tm);width:34px;text-align:right;}
+.fn{margin-top:6px;padding-top:6px;border-top:1px solid var(--bd);font-size:9px;color:var(--tm);line-height:1.5;}
+.vg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:12px;}
+.vb{background:var(--s1);border:1px solid var(--bd);border-radius:6px;padding:7px 9px;}
+.vl{font-size:8px;color:var(--tm);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;}
+.vv{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;}
+.rg{display:grid;grid-template-columns:repeat(auto-fill,minmax(62px,1fr));gap:4px;margin-bottom:16px;}
+.ri{cursor:pointer;border-radius:4px;overflow:hidden;border:1px solid var(--bd);transition:transform .12s,border-color .12s;}
+.ri:hover{transform:translateY(-2px);border-color:var(--ac);}
+.rsw{height:36px;}.rn{background:var(--s2);padding:2px 4px;font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--tm);text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.cbx{background:var(--s1);border:1px solid var(--ac);border-radius:7px;padding:11px;margin-bottom:10px;}
+.ct{font-size:9px;font-weight:600;color:var(--ac);margin-bottom:7px;}
+.cr{display:flex;align-items:center;gap:6px;margin-bottom:5px;}
+.cr label{font-size:9px;color:var(--tm);width:80px;}
+.cr input{background:var(--bg);border:1px solid var(--bd);border-radius:4px;padding:4px 6px;color:var(--tx);font-family:'JetBrains Mono',monospace;font-size:10px;width:65px;outline:none;}
+.cr input:focus{border-color:var(--ac);}
+.cr select{background:var(--bg);border:1px solid var(--bd);border-radius:4px;padding:4px 6px;color:var(--tx);font-size:10px;outline:none;}
+.cres{background:var(--bg);border-radius:5px;padding:7px;margin-top:5px;}
+.cir{display:flex;justify-content:space-between;align-items:center;padding:3px 0;border-bottom:1px solid var(--bd);font-size:10px;}
+.cir:last-child{border:none;}
+/* IA PAGE */
+#p2{flex-direction:column;min-height:calc(100vh - 49px);}
+.il{display:grid;grid-template-columns:1fr 1fr;gap:0;flex:1;}
+.ip2{padding:16px;overflow-y:auto;}
+.ip2:first-child{border-right:1px solid var(--bd);}
+.it{font-size:14px;font-weight:700;margin-bottom:2px;}
+.is{font-size:10px;color:var(--tm);margin-bottom:12px;line-height:1.5;}
+.dz{border:2px dashed var(--bd);border-radius:9px;padding:24px 14px;text-align:center;cursor:pointer;transition:all .3s;margin-bottom:10px;position:relative;}
+.dz:hover{border-color:var(--ac);background:rgba(232,200,64,.05);}
+.dz input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.di{font-size:28px;margin-bottom:5px;}
+.dt{font-size:11px;color:var(--tm);}
+.dh{font-size:9px;color:var(--td);margin-top:2px;}
+.pv{width:100%;max-height:220px;object-fit:contain;border-radius:7px;border:1px solid var(--bd);margin-bottom:8px;display:none;}
+.cpr{display:flex;align-items:center;gap:6px;margin-bottom:7px;flex-wrap:wrap;}
+#mc{width:38px;height:28px;border:1px solid var(--bd);border-radius:4px;padding:2px;background:transparent;cursor:pointer;}
+.sp{width:42px;height:42px;border-radius:6px;border:2px solid var(--bd);flex-shrink:0;}
+.ab{width:100%;padding:10px;border:none;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;transition:opacity .2s;margin-bottom:7px;}
+.ab:hover{opacity:.85;}.ab:disabled{opacity:.4;cursor:not-allowed;}
+.ab.y{background:var(--ac);color:#000;}
+.ab.bl{background:var(--bl);color:#fff;}
+.ab.pu{background:var(--pu);color:#fff;}
+.ar{background:var(--s1);border:1px solid var(--bd);border-radius:8px;padding:13px;min-height:90px;}
+.al{text-align:center;padding:15px;color:var(--tm);font-size:11px;}
+.spin{display:inline-block;animation:spin 1s linear infinite;font-size:16px;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.mc2{background:var(--s2);border-radius:6px;padding:8px;margin-bottom:6px;display:flex;gap:9px;align-items:flex-start;}
+.ms{width:42px;height:42px;border-radius:5px;flex-shrink:0;border:1px solid rgba(255,255,255,.07);}
+.mi{flex:1;}
+.mn{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;}
+.mm{font-size:9px;color:var(--tm);margin-bottom:3px;}
+.db{height:3px;background:var(--bd);border-radius:2px;overflow:hidden;margin-bottom:3px;}
+.df{height:100%;border-radius:2px;}
+.mf{font-size:8px;color:var(--tm);font-family:'JetBrains Mono',monospace;}
+.mb{padding:2px 7px;border-radius:3px;border:1px solid var(--bd);background:transparent;color:var(--tm);font-size:8px;cursor:pointer;transition:all .15s;margin-top:3px;}
+.mb:hover{border-color:var(--ac);color:var(--ac);}
+/* BARRIDO */
+#p3{flex-direction:column;min-height:calc(100vh - 49px);}
+.bl2{display:grid;grid-template-columns:1fr 1fr;gap:0;flex:1;}
+.bp{padding:16px;overflow-y:auto;}
+.bp:first-child{border-right:1px solid var(--bd);}
+.zg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px;}
+.zc{position:relative;border-radius:6px;overflow:hidden;border:2px solid var(--bd);cursor:pointer;aspect-ratio:1;}
+.zc:hover{border-color:var(--ac);}.zc.ok{border-color:var(--gn);}
+.zc img{width:100%;height:100%;object-fit:cover;}
+.zl{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.75);font-size:8px;padding:2px 4px;text-align:center;font-family:'JetBrains Mono',monospace;}
+.zc input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.za{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:8px;color:var(--td);height:100%;}
+.za .pl{font-size:20px;}
+.bcw{position:relative;margin-bottom:8px;}
+#bc{width:100%;border-radius:6px;border:1px solid var(--bd);background:var(--s2);display:block;}
+.co{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--td);font-size:10px;pointer-events:none;}
+.gs{height:24px;border-radius:5px;border:1px solid var(--bd);margin-bottom:7px;}
+.br{background:var(--s1);border:1px solid var(--bd);border-radius:8px;padding:13px;}
+.za2{background:var(--s2);border-radius:6px;padding:8px;margin-bottom:6px;}
+.zh{display:flex;align-items:center;gap:6px;margin-bottom:4px;}
+.zs{width:16px;height:16px;border-radius:3px;flex-shrink:0;}
+/* TOAST */
+.toast{position:fixed;bottom:14px;right:14px;background:var(--gn);color:#000;padding:7px 11px;border-radius:5px;font-size:10px;font-weight:600;transform:translateY(48px);opacity:0;transition:all .3s;z-index:999;}
+.toast.on{transform:translateY(0);opacity:1;}
+@media(max-width:600px){
+  .il,.bl2{grid-template-columns:1fr;}
+  .ip2:first-child,.bp:first-child{border-right:none;border-bottom:1px solid var(--bd);}
+  #p1{flex-direction:column;}
+  .sb{width:100%;min-width:unset;max-height:36vh;}
+  .ch{grid-template-columns:1fr;}
+  .vg{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="logo"><div class="lm">P</div>Pantonera IA Global</div>
+  <div class="tabs">
+    <div class="tab on" onclick="SP('p1',this)">🎨 Guía de Colores</div>
+    <div class="tab" onclick="SP('p2',this)">📷 IA · Foto</div>
+    <div class="tab" onclick="SP('p3',this)">🔬 Barrido</div>
+  </div>
+</nav>
+<!-- PAGE 1 -->
+<div id="p1" class="pg on">
+  <aside class="sb">
+    <div class="sx"><input type="text" id="srch" placeholder="Buscar... 485 U · RAL 3020 · Crimson" autocomplete="off"></div>
+    <div class="sys-filter" id="sysF"></div>
+    <div class="fam-filter" id="famF"></div>
+    <div class="cnt" id="cnt"></div>
+    <div class="cl" id="cl"></div>
+  </aside>
+  <main class="mp">
+    <div class="wb" id="wb">
+      <div class="ws"></div>
+      <h2 style="font-size:15px;color:var(--tx);margin-bottom:5px">Más de 500 colores del mundo</h2>
+      <p style="font-size:10px;max-width:220px;line-height:1.6">Pantone · RAL · NCS · CSS/HTML · Colores especiales de marca y tendencia</p>
+    </div>
+    <div class="dp" id="dp"></div>
+  </main>
+</div>
+<!-- PAGE 2 -->
+<div id="p2" class="pg">
+  <div class="il" style="flex:1">
+    <div class="ip2">
+      <div class="it">📷 Análisis de Foto con IA</div>
+      <div class="is">Sube una foto de tu muestra. La IA busca coincidencias en los 500+ colores de todos los sistemas.</div>
+      <div class="dz">
+        <input type="file" id="fi" accept="image/*" onchange="UP(event)">
+        <div class="di">📂</div><div class="dt">Toca para subir</div><div class="dh">JPG · PNG · WEBP</div>
+      </div>
+      <img id="pv" class="pv" alt="">
+      <div class="cpr">
+        <span style="font-size:9px;color:var(--tm)">Detectado:</span>
+        <div class="sp" id="sp" style="background:#333"></div>
+        <div>
+          <div id="sh" style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600">#------</div>
+          <div id="sr" style="font-size:9px;color:var(--tm)">RGB -- -- --</div>
+        </div>
+        <span style="font-size:9px;color:var(--tm);margin-left:auto">Manual:</span>
+        <input type="color" id="mc" value="#ff0000" onchange="SM(this.value)">
+      </div>
+      <button class="ab y" id="ba" onclick="AI()" disabled>🤖 Analizar con IA — Todos los sistemas</button>
+      <button class="ab bl" onclick="QM()">⚡ Comparación rápida (sin IA)</button>
+      <div style="background:var(--s1);border-radius:6px;padding:8px;font-size:9px;color:var(--tm);line-height:1.5">
+        <strong style="color:var(--tx)">Tip:</strong> La búsqueda compara contra Pantone, RAL, NCS, CSS y colores especiales simultáneamente usando ΔE CIE76.
+      </div>
+    </div>
+    <div class="ip2">
+      <div class="it">🎯 Coincidencias</div>
+      <div class="is" id="rs2">Los resultados aparecerán aquí.</div>
+      <div class="ar" id="ar"><div style="color:var(--td);font-size:10px;text-align:center;padding:16px">Sube una foto y presiona Analizar</div></div>
+    </div>
+  </div>
+</div>
+<!-- PAGE 3 -->
+<div id="p3" class="pg">
+  <div class="bl2" style="flex:1">
+    <div class="bp">
+      <div style="font-size:14px;font-weight:700;margin-bottom:2px">🔬 Comparación de Barrido</div>
+      <div style="font-size:10px;color:var(--tm);margin-bottom:12px;line-height:1.5">Sube las zonas de tu barrido para detectar variaciones y recibir ajustes.</div>
+      <div class="zg" id="zg"></div>
+      <div style="margin-bottom:9px">
+        <div style="font-size:9px;color:var(--tm);margin-bottom:4px">Color objetivo:</div>
+        <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
+          <input type="text" id="tp" placeholder="Ej: 485 U · RAL 3020" style="background:var(--bg);border:1px solid var(--bd);border-radius:4px;padding:4px 7px;color:var(--tx);font-family:'JetBrains Mono',monospace;font-size:10px;width:130px;outline:none" oninput="UTP()">
+          <div id="ts" style="width:28px;height:28px;border-radius:4px;background:var(--s2);border:1px solid var(--bd)"></div>
+          <div id="ti" style="font-size:9px;color:var(--tm)">—</div>
+        </div>
+      </div>
+      <div class="bcw"><canvas id="bc" height="80"></canvas><div class="co" id="co">Las zonas aparecerán aquí</div></div>
+      <div class="gs" id="gsr" style="background:var(--s2)"></div>
+      <button class="ab pu" onclick="BAI()">🤖 Analizar variaciones del barrido</button>
+    </div>
+    <div class="bp">
+      <div style="font-size:14px;font-weight:700;margin-bottom:2px">📊 Análisis de Zonas</div>
+      <div style="font-size:10px;color:var(--tm);margin-bottom:10px" id="bs">Sube al menos 2 zonas.</div>
+      <div class="br" id="bres"><div style="color:var(--td);font-size:10px;text-align:center;padding:16px">Esperando análisis...</div></div>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const IC={TR:'#f5f0e8',WW:'#fff8ee',Y:'#ffe000',WS:'#ff6820',R:'#e8001c',RR:'#c80050',B:'#0a0090',G:'#00a020',V:'#5a0090',OB:'#ff5000',T:'#e0d8c8',BK:'#1a1a1a',RF:'#0028a0',PB:'#0080c0',LM:'#ff00c0',OR:'#ff6000'};
+const SYS_COLORS={'Pantone':'#e8c840','RAL':'#4080e8','NCS':'#40c880','CSS':'#a060e8','Especial':'#e84060'};
+const PANTONE_DB=[
+{id:"100 U",hex:"#f5f06e",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"TR",p:56.5,pct:56.5},{ink:"Y",p:37,pct:37.0},{ink:"WS",p:4.5,pct:4.5},{ink:"WW",p:2,pct:2.0}]},
+{id:"101 U",hex:"#f2eb3b",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:65,pct:65.0},{ink:"TR",p:26,pct:26.0},{ink:"WS",p:7,pct:7.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"102 U",hex:"#f0d800",family:"Amarillos",note:"Amarillo puro Pantone",sys:"Pantone",formula:[{ink:"Y",p:78.5,pct:78.5},{ink:"WS",p:14,pct:14.0},{ink:"TR",p:6.5,pct:6.5},{ink:"WW",p:1,pct:1.0}]},
+{id:"103 U",hex:"#c8a800",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:72,pct:72.0},{ink:"WS",p:16,pct:16.0},{ink:"BK",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"104 U",hex:"#b89000",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:68,pct:68.0},{ink:"WS",p:18,pct:18.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"105 U",hex:"#906800",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:60,pct:60.0},{ink:"WS",p:20,pct:20.0},{ink:"BK",p:16,pct:16.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"106 U",hex:"#f5e840",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:70,pct:70.0},{ink:"TR",p:22,pct:22.0},{ink:"WS",p:6,pct:6.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"107 U",hex:"#f0d820",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:76,pct:76.0},{ink:"WS",p:16,pct:16.0},{ink:"TR",p:6,pct:6.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"108 U",hex:"#e8c800",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:80,pct:80.0},{ink:"WS",p:16,pct:16.0},{ink:"TR",p:3,pct:3.0},{ink:"BK",p:1,pct:1.0}]},
+{id:"109 U",hex:"#e0b800",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:76,pct:76.0},{ink:"WS",p:18,pct:18.0},{ink:"BK",p:4,pct:4.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"110 U",hex:"#c89800",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:70,pct:70.0},{ink:"WS",p:20,pct:20.0},{ink:"BK",p:8,pct:8.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"111 U",hex:"#a87800",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:64,pct:64.0},{ink:"WS",p:22,pct:22.0},{ink:"BK",p:12,pct:12.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"112 U",hex:"#906000",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:58,pct:58.0},{ink:"WS",p:24,pct:24.0},{ink:"BK",p:16,pct:16.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"113 U",hex:"#f5e030",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:74,pct:74.0},{ink:"WS",p:14,pct:14.0},{ink:"TR",p:10,pct:10.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"114 U",hex:"#f0d818",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:78,pct:78.0},{ink:"WS",p:16,pct:16.0},{ink:"TR",p:5,pct:5.0},{ink:"WW",p:1,pct:1.0}]},
+{id:"115 U",hex:"#e8c800",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:80,pct:80.0},{ink:"WS",p:17,pct:17.0},{ink:"TR",p:2.5,pct:2.5},{ink:"BK",p:0.5,pct:0.5}]},
+{id:"116 U",hex:"#f0a800",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:72,pct:72.0},{ink:"WS",p:22,pct:22.0},{ink:"TR",p:4,pct:4.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"117 U",hex:"#d09000",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:68,pct:68.0},{ink:"WS",p:24,pct:24.0},{ink:"BK",p:6,pct:6.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"118 U",hex:"#b07800",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:62,pct:62.0},{ink:"WS",p:26,pct:26.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"119 U",hex:"#886000",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:56,pct:56.0},{ink:"WS",p:28,pct:28.0},{ink:"BK",p:14,pct:14.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"120 U",hex:"#f8dc60",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:60,pct:60.0},{ink:"TR",p:32,pct:32.0},{ink:"WS",p:6,pct:6.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"121 U",hex:"#f8d840",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:65,pct:65.0},{ink:"TR",p:26,pct:26.0},{ink:"WS",p:7,pct:7.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"122 U",hex:"#f8d020",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:70,pct:70.0},{ink:"WS",p:18,pct:18.0},{ink:"TR",p:10,pct:10.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"123 U",hex:"#f8c800",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:76,pct:76.0},{ink:"WS",p:20,pct:20.0},{ink:"TR",p:3,pct:3.0},{ink:"BK",p:1,pct:1.0}]},
+{id:"124 U",hex:"#e0a800",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:72,pct:72.0},{ink:"WS",p:22,pct:22.0},{ink:"BK",p:4,pct:4.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"125 U",hex:"#c08800",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:66,pct:66.0},{ink:"WS",p:24,pct:24.0},{ink:"BK",p:8,pct:8.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"126 U",hex:"#a07000",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:60,pct:60.0},{ink:"WS",p:26,pct:26.0},{ink:"BK",p:12,pct:12.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"127 U",hex:"#f5e870",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:52,pct:52.0},{ink:"TR",p:40,pct:40.0},{ink:"WS",p:5,pct:5.0},{ink:"WW",p:3,pct:3.0}]},
+{id:"128 U",hex:"#f0e040",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:60,pct:60.0},{ink:"TR",p:30,pct:30.0},{ink:"WS",p:8,pct:8.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"129 U",hex:"#f0d820",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:70,pct:70.0},{ink:"TR",p:20,pct:20.0},{ink:"WS",p:8,pct:8.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"130 U",hex:"#e8c000",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:76,pct:76.0},{ink:"WS",p:20,pct:20.0},{ink:"TR",p:3,pct:3.0},{ink:"BK",p:1,pct:1.0}]},
+{id:"1205 U",hex:"#f8f060",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"TR",p:62,pct:62.0},{ink:"Y",p:30,pct:30.0},{ink:"WS",p:5,pct:5.0},{ink:"WW",p:3,pct:3.0}]},
+{id:"1215 U",hex:"#f8e840",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:55,pct:55.0},{ink:"TR",p:35,pct:35.0},{ink:"WS",p:7,pct:7.0},{ink:"WW",p:3,pct:3.0}]},
+{id:"1225 U",hex:"#f8d820",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:65,pct:65.0},{ink:"WS",p:20,pct:20.0},{ink:"TR",p:12,pct:12.0},{ink:"WW",p:3,pct:3.0}]},
+{id:"1235 U",hex:"#f8c800",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:74,pct:74.0},{ink:"WS",p:22,pct:22.0},{ink:"TR",p:3,pct:3.0},{ink:"BK",p:1,pct:1.0}]},
+{id:"1245 U",hex:"#d8a000",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:68,pct:68.0},{ink:"WS",p:24,pct:24.0},{ink:"BK",p:6,pct:6.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"1255 U",hex:"#b88000",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:62,pct:62.0},{ink:"WS",p:26,pct:26.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"1265 U",hex:"#906000",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:56,pct:56.0},{ink:"WS",p:28,pct:28.0},{ink:"BK",p:14,pct:14.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"1345 U",hex:"#fad880",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"TR",p:50,pct:50.0},{ink:"Y",p:38,pct:38.0},{ink:"WS",p:8,pct:8.0},{ink:"WW",p:4,pct:4.0}]},
+{id:"1355 U",hex:"#f8d060",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:50,pct:50.0},{ink:"TR",p:38,pct:38.0},{ink:"WS",p:8,pct:8.0},{ink:"WW",p:4,pct:4.0}]},
+{id:"1365 U",hex:"#f8c040",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:60,pct:60.0},{ink:"WS",p:26,pct:26.0},{ink:"TR",p:10,pct:10.0},{ink:"WW",p:4,pct:4.0}]},
+{id:"1375 U",hex:"#f8a800",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:65,pct:65.0},{ink:"WS",p:28,pct:28.0},{ink:"TR",p:5,pct:5.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"1385 U",hex:"#d89000",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:60,pct:60.0},{ink:"WS",p:30,pct:30.0},{ink:"BK",p:8,pct:8.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"1395 U",hex:"#b07000",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:54,pct:54.0},{ink:"WS",p:32,pct:32.0},{ink:"BK",p:12,pct:12.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"1405 U",hex:"#886000",family:"Amarillos",note:"",sys:"Pantone",formula:[{ink:"Y",p:48,pct:48.0},{ink:"WS",p:34,pct:34.0},{ink:"BK",p:16,pct:16.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"021 U",hex:"#ff4f00",family:"Naranjas",note:"Naranja base Pantone",sys:"Pantone",formula:[{ink:"WS",p:70,pct:70.0},{ink:"Y",p:24,pct:24.0},{ink:"R",p:6,pct:6.0}]},
+{id:"151 U",hex:"#ff6600",family:"Naranjas",note:"",sys:"Pantone",formula:[{ink:"WS",p:60,pct:60.0},{ink:"Y",p:32,pct:32.0},{ink:"TR",p:6,pct:6.0},{ink:"R",p:2,pct:2.0}]},
+{id:"152 U",hex:"#e85800",family:"Naranjas",note:"",sys:"Pantone",formula:[{ink:"WS",p:65,pct:65.0},{ink:"Y",p:25,pct:25.0},{ink:"R",p:6,pct:6.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"153 U",hex:"#c84800",family:"Naranjas",note:"",sys:"Pantone",formula:[{ink:"WS",p:66,pct:66.0},{ink:"Y",p:20,pct:20.0},{ink:"R",p:10,pct:10.0},{ink:"BK",p:4,pct:4.0}]},
+{id:"154 U",hex:"#a03800",family:"Naranjas",note:"",sys:"Pantone",formula:[{ink:"WS",p:64,pct:64.0},{ink:"Y",p:18,pct:18.0},{ink:"R",p:12,pct:12.0},{ink:"BK",p:6,pct:6.0}]},
+{id:"155 U",hex:"#f8c898",family:"Naranjas",note:"",sys:"Pantone",formula:[{ink:"TR",p:44,pct:44.0},{ink:"WS",p:30,pct:30.0},{ink:"Y",p:18,pct:18.0},{ink:"WW",p:8,pct:8.0}]},
+{id:"156 U",hex:"#f8a870",family:"Naranjas",note:"",sys:"Pantone",formula:[{ink:"WS",p:42,pct:42.0},{ink:"Y",p:28,pct:28.0},{ink:"TR",p:22,pct:22.0},{ink:"WW",p:8,pct:8.0}]},
+{id:"157 U",hex:"#d86020",family:"Naranjas",note:"",sys:"Pantone",formula:[{ink:"WS",p:58,pct:58.0},{ink:"Y",p:22,pct:22.0},{ink:"R",p:12,pct:12.0},{ink:"BK",p:5,pct:5.0},{ink:"TR",p:3,pct:3.0}]},
+{id:"158 U",hex:"#c05018",family:"Naranjas",note:"",sys:"Pantone",formula:[{ink:"WS",p:54,pct:54.0},{ink:"Y",p:20,pct:20.0},{ink:"R",p:18,pct:18.0},{ink:"BK",p:6,pct:6.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"1495 U",hex:"#ff8040",family:"Naranjas",note:"Naranja melocotón",sys:"Pantone",formula:[{ink:"WS",p:48,pct:48.0},{ink:"Y",p:38,pct:38.0},{ink:"TR",p:10,pct:10.0},{ink:"WW",p:4,pct:4.0}]},
+{id:"1505 U",hex:"#f86000",family:"Naranjas",note:"",sys:"Pantone",formula:[{ink:"WS",p:62,pct:62.0},{ink:"Y",p:30,pct:30.0},{ink:"TR",p:6,pct:6.0},{ink:"R",p:2,pct:2.0}]},
+{id:"1555 U",hex:"#e87040",family:"Naranjas",note:"",sys:"Pantone",formula:[{ink:"WS",p:52,pct:52.0},{ink:"Y",p:28,pct:28.0},{ink:"TR",p:12,pct:12.0},{ink:"R",p:5,pct:5.0},{ink:"WW",p:3,pct:3.0}]},
+{id:"1565 U",hex:"#f06030",family:"Naranjas",note:"",sys:"Pantone",formula:[{ink:"WS",p:58,pct:58.0},{ink:"Y",p:24,pct:24.0},{ink:"R",p:10,pct:10.0},{ink:"TR",p:6,pct:6.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"1575 U",hex:"#f05020",family:"Naranjas",note:"",sys:"Pantone",formula:[{ink:"WS",p:62,pct:62.0},{ink:"Y",p:20,pct:20.0},{ink:"R",p:14,pct:14.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"1585 U",hex:"#e04018",family:"Naranjas",note:"",sys:"Pantone",formula:[{ink:"WS",p:64,pct:64.0},{ink:"R",p:20,pct:20.0},{ink:"Y",p:10,pct:10.0},{ink:"BK",p:4,pct:4.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"1595 U",hex:"#c83010",family:"Naranjas",note:"",sys:"Pantone",formula:[{ink:"WS",p:60,pct:60.0},{ink:"R",p:24,pct:24.0},{ink:"Y",p:8,pct:8.0},{ink:"BK",p:6,pct:6.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"1615 U",hex:"#882000",family:"Naranjas",note:"",sys:"Pantone",formula:[{ink:"R",p:42,pct:42.0},{ink:"WS",p:36,pct:36.0},{ink:"Y",p:8,pct:8.0},{ink:"BK",p:12,pct:12.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"032 U",hex:"#ef3340",family:"Rojos",note:"Rojo brillante Pantone",sys:"Pantone",formula:[{ink:"R",p:58,pct:58.0},{ink:"WS",p:30,pct:30.0},{ink:"TR",p:8,pct:8.0},{ink:"Y",p:4,pct:4.0}]},
+{id:"172 U",hex:"#f84818",family:"Rojos",note:"",sys:"Pantone",formula:[{ink:"WS",p:54,pct:54.0},{ink:"R",p:36,pct:36.0},{ink:"Y",p:6,pct:6.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"175 U",hex:"#e88878",family:"Rojos",note:"",sys:"Pantone",formula:[{ink:"TR",p:38,pct:38.0},{ink:"WS",p:32,pct:32.0},{ink:"R",p:18,pct:18.0},{ink:"WW",p:10,pct:10.0},{ink:"Y",p:2,pct:2.0}]},
+{id:"179 U",hex:"#e83820",family:"Rojos",note:"",sys:"Pantone",formula:[{ink:"WS",p:48,pct:48.0},{ink:"R",p:42,pct:42.0},{ink:"Y",p:6,pct:6.0},{ink:"BK",p:2,pct:2.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"185 U",hex:"#e8102a",family:"Rojos",note:"",sys:"Pantone",formula:[{ink:"R",p:70,pct:70.0},{ink:"WS",p:20,pct:20.0},{ink:"TR",p:8,pct:8.0},{ink:"Y",p:2,pct:2.0}]},
+{id:"186 U",hex:"#c8102e",family:"Rojos",note:"Rojo bandera",sys:"Pantone",formula:[{ink:"R",p:68,pct:68.0},{ink:"RR",p:22,pct:22.0},{ink:"TR",p:7,pct:7.0},{ink:"Y",p:3,pct:3.0}]},
+{id:"187 U",hex:"#a6192e",family:"Rojos",note:"",sys:"Pantone",formula:[{ink:"R",p:60,pct:60.0},{ink:"RR",p:28,pct:28.0},{ink:"BK",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"188 U",hex:"#881824",family:"Rojos",note:"",sys:"Pantone",formula:[{ink:"R",p:52,pct:52.0},{ink:"RR",p:30,pct:30.0},{ink:"BK",p:14,pct:14.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"193 U",hex:"#c03048",family:"Rojos",note:"",sys:"Pantone",formula:[{ink:"R",p:55,pct:55.0},{ink:"RR",p:32,pct:32.0},{ink:"TR",p:10,pct:10.0},{ink:"BK",p:3,pct:3.0}]},
+{id:"200 U",hex:"#c0304a",family:"Rojos",note:"",sys:"Pantone",formula:[{ink:"R",p:55,pct:55.0},{ink:"RR",p:32,pct:32.0},{ink:"TR",p:10,pct:10.0},{ink:"BK",p:3,pct:3.0}]},
+{id:"485 U",hex:"#d62b2b",family:"Rojos",note:"Rojo carmín",sys:"Pantone",formula:[{ink:"R",p:72,pct:72.0},{ink:"WS",p:18,pct:18.0},{ink:"TR",p:7,pct:7.0},{ink:"Y",p:3,pct:3.0}]},
+{id:"1788 U",hex:"#f03050",family:"Rojos",note:"",sys:"Pantone",formula:[{ink:"R",p:45,pct:45.0},{ink:"WS",p:28,pct:28.0},{ink:"RR",p:18,pct:18.0},{ink:"TR",p:9,pct:9.0}]},
+{id:"rhodamine U",hex:"#e0508c",family:"Magentas",note:"Magenta base",sys:"Pantone",formula:[{ink:"RR",p:80,pct:80.0},{ink:"TR",p:12,pct:12.0},{ink:"WW",p:6,pct:6.0},{ink:"R",p:2,pct:2.0}]},
+{id:"rubine red U",hex:"#c8005a",family:"Magentas",note:"",sys:"Pantone",formula:[{ink:"RR",p:90,pct:90.0},{ink:"TR",p:6,pct:6.0},{ink:"BK",p:2,pct:2.0},{ink:"R",p:2,pct:2.0}]},
+{id:"812 U",hex:"#ff2090",family:"Magentas",note:"Magenta fluorescente",sys:"Pantone",formula:[{ink:"RR",p:68,pct:68.0},{ink:"TR",p:18,pct:18.0},{ink:"R",p:10,pct:10.0},{ink:"V",p:4,pct:4.0}]},
+{id:"18-1750",hex:"#bb2649",family:"Magentas",note:"Viva Magenta 2023",sys:"Pantone",formula:[{ink:"RR",p:48,pct:48.0},{ink:"R",p:30,pct:30.0},{ink:"V",p:12,pct:12.0},{ink:"TR",p:7,pct:7.0},{ink:"BK",p:3,pct:3.0}]},
+{id:"218 U",hex:"#f080b0",family:"Magentas",note:"",sys:"Pantone",formula:[{ink:"RR",p:30,pct:30.0},{ink:"TR",p:42,pct:42.0},{ink:"R",p:14,pct:14.0},{ink:"WW",p:10,pct:10.0},{ink:"WS",p:4,pct:4.0}]},
+{id:"219 U",hex:"#e860a0",family:"Magentas",note:"",sys:"Pantone",formula:[{ink:"RR",p:40,pct:40.0},{ink:"TR",p:32,pct:32.0},{ink:"R",p:14,pct:14.0},{ink:"WS",p:8,pct:8.0},{ink:"WW",p:6,pct:6.0}]},
+{id:"226 U",hex:"#d03090",family:"Magentas",note:"",sys:"Pantone",formula:[{ink:"RR",p:54,pct:54.0},{ink:"R",p:22,pct:22.0},{ink:"V",p:8,pct:8.0},{ink:"TR",p:10,pct:10.0},{ink:"BK",p:6,pct:6.0}]},
+{id:"1905 U",hex:"#f080a0",family:"Magentas",note:"",sys:"Pantone",formula:[{ink:"RR",p:40,pct:40.0},{ink:"TR",p:38,pct:38.0},{ink:"WW",p:16,pct:16.0},{ink:"R",p:6,pct:6.0}]},
+{id:"1915 U",hex:"#e85878",family:"Magentas",note:"",sys:"Pantone",formula:[{ink:"RR",p:52,pct:52.0},{ink:"TR",p:28,pct:28.0},{ink:"R",p:12,pct:12.0},{ink:"WW",p:8,pct:8.0}]},
+{id:"1925 U",hex:"#d83060",family:"Magentas",note:"",sys:"Pantone",formula:[{ink:"RR",p:58,pct:58.0},{ink:"R",p:24,pct:24.0},{ink:"TR",p:10,pct:10.0},{ink:"BK",p:6,pct:6.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"1935 U",hex:"#c02050",family:"Magentas",note:"",sys:"Pantone",formula:[{ink:"RR",p:60,pct:60.0},{ink:"R",p:22,pct:22.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:6,pct:6.0},{ink:"V",p:2,pct:2.0}]},
+{id:"violet U",hex:"#440099",family:"Violetas",note:"",sys:"Pantone",formula:[{ink:"V",p:85,pct:85.0},{ink:"B",p:10,pct:10.0},{ink:"TR",p:5,pct:5.0}]},
+{id:"520 U",hex:"#5c2d91",family:"Violetas",note:"",sys:"Pantone",formula:[{ink:"V",p:70,pct:70.0},{ink:"RR",p:18,pct:18.0},{ink:"B",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"521 U",hex:"#7a5098",family:"Violetas",note:"",sys:"Pantone",formula:[{ink:"V",p:55,pct:55.0},{ink:"TR",p:28,pct:28.0},{ink:"RR",p:12,pct:12.0},{ink:"WW",p:5,pct:5.0}]},
+{id:"265 U",hex:"#9070c8",family:"Violetas",note:"",sys:"Pantone",formula:[{ink:"V",p:52,pct:52.0},{ink:"TR",p:30,pct:30.0},{ink:"B",p:12,pct:12.0},{ink:"WW",p:6,pct:6.0}]},
+{id:"267 U",hex:"#5020a8",family:"Violetas",note:"",sys:"Pantone",formula:[{ink:"V",p:68,pct:68.0},{ink:"B",p:20,pct:20.0},{ink:"BK",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"2582 U",hex:"#8050b0",family:"Violetas",note:"",sys:"Pantone",formula:[{ink:"V",p:60,pct:60.0},{ink:"B",p:16,pct:16.0},{ink:"TR",p:14,pct:14.0},{ink:"RR",p:10,pct:10.0}]},
+{id:"2597 U",hex:"#4010a0",family:"Violetas",note:"",sys:"Pantone",formula:[{ink:"V",p:70,pct:70.0},{ink:"B",p:22,pct:22.0},{ink:"BK",p:6,pct:6.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"072 U",hex:"#0a00a0",family:"Azules",note:"Azul base Pantone",sys:"Pantone",formula:[{ink:"B",p:90,pct:90.0},{ink:"V",p:6,pct:6.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"reflex U",hex:"#001489",family:"Azules",note:"",sys:"Pantone",formula:[{ink:"RF",p:88,pct:88.0},{ink:"B",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"286 U",hex:"#0032a0",family:"Azules",note:"",sys:"Pantone",formula:[{ink:"RF",p:68,pct:68.0},{ink:"B",p:22,pct:22.0},{ink:"TR",p:7,pct:7.0},{ink:"V",p:3,pct:3.0}]},
+{id:"293 U",hex:"#003da5",family:"Azules",note:"",sys:"Pantone",formula:[{ink:"RF",p:60,pct:60.0},{ink:"B",p:28,pct:28.0},{ink:"TR",p:9,pct:9.0},{ink:"G",p:3,pct:3.0}]},
+{id:"300 U",hex:"#0063be",family:"Azules",note:"",sys:"Pantone",formula:[{ink:"RF",p:55,pct:55.0},{ink:"B",p:25,pct:25.0},{ink:"G",p:12,pct:12.0},{ink:"TR",p:8,pct:8.0}]},
+{id:"301 U",hex:"#005596",family:"Azules",note:"",sys:"Pantone",formula:[{ink:"RF",p:50,pct:50.0},{ink:"B",p:28,pct:28.0},{ink:"G",p:14,pct:14.0},{ink:"BK",p:5,pct:5.0},{ink:"TR",p:3,pct:3.0}]},
+{id:"313 U",hex:"#009cb8",family:"Azules",note:"",sys:"Pantone",formula:[{ink:"G",p:42,pct:42.0},{ink:"B",p:38,pct:38.0},{ink:"TR",p:14,pct:14.0},{ink:"RF",p:6,pct:6.0}]},
+{id:"2935 U",hex:"#0058a8",family:"Azules",note:"",sys:"Pantone",formula:[{ink:"RF",p:56,pct:56.0},{ink:"B",p:28,pct:28.0},{ink:"G",p:8,pct:8.0},{ink:"BK",p:6,pct:6.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"process blue U",hex:"#0085ca",family:"Cianes",note:"Azul proceso",sys:"Pantone",formula:[{ink:"RF",p:50,pct:50.0},{ink:"G",p:38,pct:38.0},{ink:"TR",p:8,pct:8.0},{ink:"B",p:4,pct:4.0}]},
+{id:"320 U",hex:"#009b9e",family:"Cianes",note:"",sys:"Pantone",formula:[{ink:"G",p:62,pct:62.0},{ink:"B",p:22,pct:22.0},{ink:"TR",p:10,pct:10.0},{ink:"BK",p:6,pct:6.0}]},
+{id:"326 U",hex:"#00b0b9",family:"Cianes",note:"",sys:"Pantone",formula:[{ink:"G",p:58,pct:58.0},{ink:"B",p:24,pct:24.0},{ink:"TR",p:12,pct:12.0},{ink:"BK",p:6,pct:6.0}]},
+{id:"3265 U",hex:"#00c0c8",family:"Cianes",note:"",sys:"Pantone",formula:[{ink:"G",p:62,pct:62.0},{ink:"B",p:20,pct:20.0},{ink:"TR",p:12,pct:12.0},{ink:"BK",p:6,pct:6.0}]},
+{id:"green U",hex:"#00a650",family:"Verdes",note:"Verde base Pantone",sys:"Pantone",formula:[{ink:"G",p:88,pct:88.0},{ink:"Y",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"354 U",hex:"#00b140",family:"Verdes",note:"",sys:"Pantone",formula:[{ink:"G",p:66,pct:66.0},{ink:"Y",p:24,pct:24.0},{ink:"TR",p:8,pct:8.0},{ink:"B",p:2,pct:2.0}]},
+{id:"355 U",hex:"#009a44",family:"Verdes",note:"",sys:"Pantone",formula:[{ink:"G",p:66,pct:66.0},{ink:"Y",p:20,pct:20.0},{ink:"BK",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0},{ink:"B",p:2,pct:2.0}]},
+{id:"362 U",hex:"#3e8018",family:"Verdes",note:"",sys:"Pantone",formula:[{ink:"G",p:62,pct:62.0},{ink:"Y",p:24,pct:24.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"368 U",hex:"#6ab023",family:"Verdes",note:"",sys:"Pantone",formula:[{ink:"G",p:48,pct:48.0},{ink:"Y",p:42,pct:42.0},{ink:"TR",p:8,pct:8.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"376 U",hex:"#78be20",family:"Verdes",note:"",sys:"Pantone",formula:[{ink:"Y",p:60,pct:60.0},{ink:"G",p:32,pct:32.0},{ink:"TR",p:6,pct:6.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"390 U",hex:"#c8d400",family:"Verdes",note:"",sys:"Pantone",formula:[{ink:"Y",p:72,pct:72.0},{ink:"G",p:20,pct:20.0},{ink:"TR",p:8,pct:8.0}]},
+{id:"black U",hex:"#2b2926",family:"Negros",note:"Negro base",sys:"Pantone",formula:[{ink:"BK",p:100,pct:100.0}]},
+{id:"black 6 U",hex:"#101820",family:"Negros",note:"Negro azulado",sys:"Pantone",formula:[{ink:"BK",p:88,pct:88.0},{ink:"RF",p:8,pct:8.0},{ink:"V",p:4,pct:4.0}]},
+{id:"cool gray 5 U",hex:"#909090",family:"Negros",note:"",sys:"Pantone",formula:[{ink:"BK",p:22,pct:22.0},{ink:"TR",p:64,pct:64.0},{ink:"RF",p:7,pct:7.0},{ink:"V",p:5,pct:5.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"cool gray 11 U",hex:"#303030",family:"Negros",note:"",sys:"Pantone",formula:[{ink:"BK",p:70,pct:70.0},{ink:"TR",p:16,pct:16.0},{ink:"RF",p:8,pct:8.0},{ink:"V",p:4,pct:4.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"warm gray 5 U",hex:"#989080",family:"Negros",note:"",sys:"Pantone",formula:[{ink:"BK",p:20,pct:20.0},{ink:"TR",p:58,pct:58.0},{ink:"Y",p:10,pct:10.0},{ink:"WS",p:8,pct:8.0},{ink:"WW",p:4,pct:4.0}]},
+{id:"warm gray 11 U",hex:"#383028",family:"Negros",note:"",sys:"Pantone",formula:[{ink:"BK",p:66,pct:66.0},{ink:"TR",p:12,pct:12.0},{ink:"Y",p:10,pct:10.0},{ink:"WS",p:8,pct:8.0},{ink:"WW",p:4,pct:4.0}]},
+{id:"871 U",hex:"#a08040",family:"Marrones",note:"Oro simulado",sys:"Pantone",formula:[{ink:"Y",p:55,pct:55.0},{ink:"WS",p:24,pct:24.0},{ink:"BK",p:14,pct:14.0},{ink:"TR",p:7,pct:7.0}]},
+{id:"874 U",hex:"#906838",family:"Marrones",note:"Cobre simulado",sys:"Pantone",formula:[{ink:"Y",p:42,pct:42.0},{ink:"WS",p:32,pct:32.0},{ink:"BK",p:18,pct:18.0},{ink:"R",p:5,pct:5.0},{ink:"TR",p:3,pct:3.0}]},
+{id:"4635 U",hex:"#d0a07a",family:"Marrones",note:"",sys:"Pantone",formula:[{ink:"WS",p:40,pct:40.0},{ink:"Y",p:28,pct:28.0},{ink:"TR",p:22,pct:22.0},{ink:"BK",p:6,pct:6.0},{ink:"R",p:4,pct:4.0}]},
+{id:"4645 U",hex:"#c09060",family:"Marrones",note:"",sys:"Pantone",formula:[{ink:"WS",p:44,pct:44.0},{ink:"Y",p:26,pct:26.0},{ink:"BK",p:14,pct:14.0},{ink:"TR",p:12,pct:12.0},{ink:"R",p:4,pct:4.0}]},
+{id:"7527 U",hex:"#c8b098",family:"Marrones",note:"",sys:"Pantone",formula:[{ink:"WS",p:36,pct:36.0},{ink:"Y",p:30,pct:30.0},{ink:"TR",p:24,pct:24.0},{ink:"BK",p:7,pct:7.0},{ink:"R",p:3,pct:3.0}]},
+{id:"9020 U",hex:"#f8d8e0",family:"Pastel",note:"",sys:"Pantone",formula:[{ink:"WW",p:78,pct:78.0},{ink:"RR",p:14,pct:14.0},{ink:"TR",p:6,pct:6.0},{ink:"R",p:2,pct:2.0}]},
+{id:"9320 U",hex:"#d0e8f0",family:"Pastel",note:"",sys:"Pantone",formula:[{ink:"WW",p:76,pct:76.0},{ink:"G",p:12,pct:12.0},{ink:"TR",p:8,pct:8.0},{ink:"B",p:4,pct:4.0}]},
+{id:"9560 U",hex:"#d8eccc",family:"Pastel",note:"",sys:"Pantone",formula:[{ink:"WW",p:78,pct:78.0},{ink:"G",p:14,pct:14.0},{ink:"Y",p:6,pct:6.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"RAL 1000",hex:"#bebd7f",family:"RAL Amarillos",note:"Verde amarillento",sys:"RAL",formula:[{ink:"Y",p:52,pct:52.0},{ink:"G",p:18,pct:18.0},{ink:"BK",p:14,pct:14.0},{ink:"TR",p:14,pct:14.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"RAL 1001",hex:"#c2b078",family:"RAL Amarillos",note:"Beige",sys:"RAL",formula:[{ink:"Y",p:48,pct:48.0},{ink:"WS",p:22,pct:22.0},{ink:"BK",p:16,pct:16.0},{ink:"TR",p:10,pct:10.0},{ink:"WW",p:4,pct:4.0}]},
+{id:"RAL 1002",hex:"#c6a664",family:"RAL Amarillos",note:"Amarillo arena",sys:"RAL",formula:[{ink:"Y",p:50,pct:50.0},{ink:"WS",p:26,pct:26.0},{ink:"BK",p:14,pct:14.0},{ink:"TR",p:8,pct:8.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"RAL 1003",hex:"#e5be01",family:"RAL Amarillos",note:"Amarillo señal",sys:"RAL",formula:[{ink:"Y",p:78,pct:78.0},{ink:"WS",p:14,pct:14.0},{ink:"TR",p:6,pct:6.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"RAL 1004",hex:"#cda434",family:"RAL Amarillos",note:"Amarillo dorado",sys:"RAL",formula:[{ink:"Y",p:68,pct:68.0},{ink:"WS",p:18,pct:18.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 1005",hex:"#a98307",family:"RAL Amarillos",note:"Amarillo miel",sys:"RAL",formula:[{ink:"Y",p:62,pct:62.0},{ink:"WS",p:20,pct:20.0},{ink:"BK",p:14,pct:14.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 1006",hex:"#e4a010",family:"RAL Amarillos",note:"Amarillo maíz",sys:"RAL",formula:[{ink:"Y",p:70,pct:70.0},{ink:"WS",p:22,pct:22.0},{ink:"BK",p:6,pct:6.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"RAL 1007",hex:"#dc9d00",family:"RAL Amarillos",note:"Amarillo narciso",sys:"RAL",formula:[{ink:"Y",p:72,pct:72.0},{ink:"WS",p:22,pct:22.0},{ink:"BK",p:4,pct:4.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"RAL 1011",hex:"#8a6642",family:"RAL Amarillos",note:"Beige pardo",sys:"RAL",formula:[{ink:"WS",p:44,pct:44.0},{ink:"Y",p:28,pct:28.0},{ink:"BK",p:20,pct:20.0},{ink:"TR",p:4,pct:4.0},{ink:"R",p:4,pct:4.0}]},
+{id:"RAL 1012",hex:"#c7b446",family:"RAL Amarillos",note:"Amarillo limón",sys:"RAL",formula:[{ink:"Y",p:62,pct:62.0},{ink:"WS",p:16,pct:16.0},{ink:"BK",p:12,pct:12.0},{ink:"TR",p:8,pct:8.0},{ink:"G",p:2,pct:2.0}]},
+{id:"RAL 1013",hex:"#eae6ca",family:"RAL Amarillos",note:"Blanco perla",sys:"RAL",formula:[{ink:"WW",p:72,pct:72.0},{ink:"Y",p:14,pct:14.0},{ink:"TR",p:12,pct:12.0},{ink:"WS",p:2,pct:2.0}]},
+{id:"RAL 1014",hex:"#e1cc4f",family:"RAL Amarillos",note:"Marfil",sys:"RAL",formula:[{ink:"Y",p:68,pct:68.0},{ink:"WS",p:14,pct:14.0},{ink:"TR",p:12,pct:12.0},{ink:"WW",p:4,pct:4.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"RAL 1015",hex:"#e6d690",family:"RAL Amarillos",note:"Marfil claro",sys:"RAL",formula:[{ink:"Y",p:54,pct:54.0},{ink:"TR",p:30,pct:30.0},{ink:"WW",p:12,pct:12.0},{ink:"WS",p:4,pct:4.0}]},
+{id:"RAL 1016",hex:"#edff21",family:"RAL Amarillos",note:"Amarillo azufre",sys:"RAL",formula:[{ink:"Y",p:82,pct:82.0},{ink:"TR",p:12,pct:12.0},{ink:"WW",p:4,pct:4.0},{ink:"G",p:2,pct:2.0}]},
+{id:"RAL 1017",hex:"#f5d033",family:"RAL Amarillos",note:"Amarillo azafrán",sys:"RAL",formula:[{ink:"Y",p:74,pct:74.0},{ink:"WS",p:16,pct:16.0},{ink:"TR",p:8,pct:8.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"RAL 1018",hex:"#f8f32b",family:"RAL Amarillos",note:"Amarillo zinc",sys:"RAL",formula:[{ink:"Y",p:86,pct:86.0},{ink:"TR",p:8,pct:8.0},{ink:"WW",p:4,pct:4.0},{ink:"G",p:2,pct:2.0}]},
+{id:"RAL 1019",hex:"#9e9764",family:"RAL Amarillos",note:"Gris beige",sys:"RAL",formula:[{ink:"Y",p:40,pct:40.0},{ink:"G",p:20,pct:20.0},{ink:"BK",p:20,pct:20.0},{ink:"TR",p:12,pct:12.0},{ink:"WS",p:8,pct:8.0}]},
+{id:"RAL 1020",hex:"#999950",family:"RAL Amarillos",note:"Amarillo oliva",sys:"RAL",formula:[{ink:"Y",p:44,pct:44.0},{ink:"G",p:22,pct:22.0},{ink:"BK",p:20,pct:20.0},{ink:"TR",p:10,pct:10.0},{ink:"WS",p:4,pct:4.0}]},
+{id:"RAL 1021",hex:"#f3a505",family:"RAL Amarillos",note:"Amarillo colza",sys:"RAL",formula:[{ink:"Y",p:74,pct:74.0},{ink:"WS",p:20,pct:20.0},{ink:"BK",p:4,pct:4.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"RAL 1023",hex:"#faa420",family:"RAL Amarillos",note:"Amarillo tráfico",sys:"RAL",formula:[{ink:"Y",p:68,pct:68.0},{ink:"WS",p:24,pct:24.0},{ink:"TR",p:6,pct:6.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"RAL 1024",hex:"#bd7b1a",family:"RAL Amarillos",note:"Amarillo ocre",sys:"RAL",formula:[{ink:"Y",p:54,pct:54.0},{ink:"WS",p:28,pct:28.0},{ink:"BK",p:14,pct:14.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 1026",hex:"#ffff00",family:"RAL Amarillos",note:"Amarillo luminoso",sys:"RAL",formula:[{ink:"Y",p:96,pct:96.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 1028",hex:"#faab21",family:"RAL Amarillos",note:"Amarillo melón",sys:"RAL",formula:[{ink:"Y",p:66,pct:66.0},{ink:"WS",p:26,pct:26.0},{ink:"TR",p:6,pct:6.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"RAL 1032",hex:"#d6ae01",family:"RAL Amarillos",note:"Amarillo retama",sys:"RAL",formula:[{ink:"Y",p:74,pct:74.0},{ink:"WS",p:18,pct:18.0},{ink:"BK",p:6,pct:6.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"RAL 1033",hex:"#f99a1c",family:"RAL Amarillos",note:"Amarillo dalia",sys:"RAL",formula:[{ink:"Y",p:62,pct:62.0},{ink:"WS",p:28,pct:28.0},{ink:"TR",p:8,pct:8.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"RAL 1034",hex:"#cb760e",family:"RAL Amarillos",note:"Amarillo pastel",sys:"RAL",formula:[{ink:"Y",p:56,pct:56.0},{ink:"WS",p:30,pct:30.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 2000",hex:"#ed760e",family:"RAL Naranjas",note:"Naranja amarillento",sys:"RAL",formula:[{ink:"WS",p:64,pct:64.0},{ink:"Y",p:28,pct:28.0},{ink:"TR",p:6,pct:6.0},{ink:"R",p:2,pct:2.0}]},
+{id:"RAL 2001",hex:"#c93c20",family:"RAL Naranjas",note:"Naranja rojizo",sys:"RAL",formula:[{ink:"WS",p:54,pct:54.0},{ink:"R",p:36,pct:36.0},{ink:"Y",p:6,pct:6.0},{ink:"BK",p:4,pct:4.0}]},
+{id:"RAL 2002",hex:"#cb2821",family:"RAL Naranjas",note:"Naranja bermellón",sys:"RAL",formula:[{ink:"R",p:58,pct:58.0},{ink:"WS",p:28,pct:28.0},{ink:"Y",p:8,pct:8.0},{ink:"BK",p:6,pct:6.0}]},
+{id:"RAL 2003",hex:"#ff7514",family:"RAL Naranjas",note:"Naranja pastel",sys:"RAL",formula:[{ink:"WS",p:66,pct:66.0},{ink:"Y",p:26,pct:26.0},{ink:"TR",p:6,pct:6.0},{ink:"R",p:2,pct:2.0}]},
+{id:"RAL 2004",hex:"#f44611",family:"RAL Naranjas",note:"Naranja puro",sys:"RAL",formula:[{ink:"WS",p:60,pct:60.0},{ink:"R",p:32,pct:32.0},{ink:"Y",p:6,pct:6.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"RAL 2005",hex:"#ff2300",family:"RAL Naranjas",note:"Naranja luminoso",sys:"RAL",formula:[{ink:"R",p:62,pct:62.0},{ink:"WS",p:28,pct:28.0},{ink:"Y",p:8,pct:8.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"RAL 2007",hex:"#ffa420",family:"RAL Naranjas",note:"Naranja luminoso claro",sys:"RAL",formula:[{ink:"WS",p:52,pct:52.0},{ink:"Y",p:36,pct:36.0},{ink:"TR",p:10,pct:10.0},{ink:"R",p:2,pct:2.0}]},
+{id:"RAL 2008",hex:"#f75e25",family:"RAL Naranjas",note:"Naranja rojo claro",sys:"RAL",formula:[{ink:"WS",p:58,pct:58.0},{ink:"R",p:30,pct:30.0},{ink:"Y",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 2009",hex:"#f54021",family:"RAL Naranjas",note:"Naranja tráfico",sys:"RAL",formula:[{ink:"WS",p:56,pct:56.0},{ink:"R",p:34,pct:34.0},{ink:"Y",p:6,pct:6.0},{ink:"BK",p:4,pct:4.0}]},
+{id:"RAL 2010",hex:"#d84b20",family:"RAL Naranjas",note:"Naranja señal",sys:"RAL",formula:[{ink:"WS",p:52,pct:52.0},{ink:"R",p:36,pct:36.0},{ink:"Y",p:6,pct:6.0},{ink:"BK",p:6,pct:6.0}]},
+{id:"RAL 2011",hex:"#ec7c26",family:"RAL Naranjas",note:"Naranja intenso",sys:"RAL",formula:[{ink:"WS",p:58,pct:58.0},{ink:"Y",p:30,pct:30.0},{ink:"TR",p:8,pct:8.0},{ink:"R",p:4,pct:4.0}]},
+{id:"RAL 2012",hex:"#e55137",family:"RAL Naranjas",note:"Naranja salmón",sys:"RAL",formula:[{ink:"R",p:44,pct:44.0},{ink:"WS",p:36,pct:36.0},{ink:"Y",p:10,pct:10.0},{ink:"BK",p:6,pct:6.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 2013",hex:"#c35831",family:"RAL Naranjas",note:"Naranja perla",sys:"RAL",formula:[{ink:"R",p:40,pct:40.0},{ink:"WS",p:38,pct:38.0},{ink:"Y",p:8,pct:8.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 3000",hex:"#af2b1e",family:"RAL Rojos",note:"Rojo llama",sys:"RAL",formula:[{ink:"R",p:60,pct:60.0},{ink:"RR",p:20,pct:20.0},{ink:"BK",p:16,pct:16.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 3001",hex:"#a52019",family:"RAL Rojos",note:"Rojo señal",sys:"RAL",formula:[{ink:"R",p:58,pct:58.0},{ink:"RR",p:22,pct:22.0},{ink:"BK",p:16,pct:16.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 3002",hex:"#a2231d",family:"RAL Rojos",note:"Rojo carmin",sys:"RAL",formula:[{ink:"R",p:60,pct:60.0},{ink:"RR",p:20,pct:20.0},{ink:"BK",p:16,pct:16.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 3003",hex:"#9b111e",family:"RAL Rojos",note:"Rojo rubí",sys:"RAL",formula:[{ink:"R",p:56,pct:56.0},{ink:"RR",p:24,pct:24.0},{ink:"BK",p:16,pct:16.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 3004",hex:"#75151e",family:"RAL Rojos",note:"Rojo púrpura",sys:"RAL",formula:[{ink:"R",p:52,pct:52.0},{ink:"RR",p:26,pct:26.0},{ink:"BK",p:18,pct:18.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 3005",hex:"#5e2129",family:"RAL Rojos",note:"Rojo vino",sys:"RAL",formula:[{ink:"R",p:46,pct:46.0},{ink:"RR",p:28,pct:28.0},{ink:"BK",p:20,pct:20.0},{ink:"TR",p:4,pct:4.0},{ink:"V",p:2,pct:2.0}]},
+{id:"RAL 3007",hex:"#412227",family:"RAL Rojos",note:"Rojo negro",sys:"RAL",formula:[{ink:"R",p:40,pct:40.0},{ink:"RR",p:28,pct:28.0},{ink:"BK",p:26,pct:26.0},{ink:"TR",p:4,pct:4.0},{ink:"V",p:2,pct:2.0}]},
+{id:"RAL 3009",hex:"#642424",family:"RAL Rojos",note:"Rojo óxido",sys:"RAL",formula:[{ink:"R",p:50,pct:50.0},{ink:"RR",p:22,pct:22.0},{ink:"BK",p:20,pct:20.0},{ink:"TR",p:4,pct:4.0},{ink:"WS",p:4,pct:4.0}]},
+{id:"RAL 3011",hex:"#781f19",family:"RAL Rojos",note:"Rojo pardo",sys:"RAL",formula:[{ink:"R",p:54,pct:54.0},{ink:"RR",p:20,pct:20.0},{ink:"BK",p:18,pct:18.0},{ink:"TR",p:4,pct:4.0},{ink:"WS",p:4,pct:4.0}]},
+{id:"RAL 3012",hex:"#c1876b",family:"RAL Rojos",note:"Rojo beige",sys:"RAL",formula:[{ink:"WS",p:40,pct:40.0},{ink:"R",p:28,pct:28.0},{ink:"Y",p:16,pct:16.0},{ink:"TR",p:10,pct:10.0},{ink:"WW",p:6,pct:6.0}]},
+{id:"RAL 3013",hex:"#a12312",family:"RAL Rojos",note:"Rojo tomate",sys:"RAL",formula:[{ink:"R",p:60,pct:60.0},{ink:"WS",p:22,pct:22.0},{ink:"BK",p:14,pct:14.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 3014",hex:"#d36e70",family:"RAL Rojos",note:"Rojo antiguo",sys:"RAL",formula:[{ink:"R",p:40,pct:40.0},{ink:"WS",p:28,pct:28.0},{ink:"TR",p:18,pct:18.0},{ink:"WW",p:12,pct:12.0},{ink:"RR",p:2,pct:2.0}]},
+{id:"RAL 3015",hex:"#ea899a",family:"RAL Rojos",note:"Rosa claro",sys:"RAL",formula:[{ink:"RR",p:28,pct:28.0},{ink:"TR",p:40,pct:40.0},{ink:"R",p:16,pct:16.0},{ink:"WW",p:14,pct:14.0},{ink:"WS",p:2,pct:2.0}]},
+{id:"RAL 3016",hex:"#b32821",family:"RAL Rojos",note:"Rojo coral",sys:"RAL",formula:[{ink:"R",p:60,pct:60.0},{ink:"WS",p:20,pct:20.0},{ink:"BK",p:16,pct:16.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 3017",hex:"#e63244",family:"RAL Rojos",note:"Rosa",sys:"RAL",formula:[{ink:"R",p:56,pct:56.0},{ink:"WS",p:22,pct:22.0},{ink:"RR",p:14,pct:14.0},{ink:"TR",p:6,pct:6.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"RAL 3018",hex:"#d53032",family:"RAL Rojos",note:"Rojo fresa",sys:"RAL",formula:[{ink:"R",p:60,pct:60.0},{ink:"WS",p:20,pct:20.0},{ink:"RR",p:12,pct:12.0},{ink:"TR",p:6,pct:6.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"RAL 3020",hex:"#cc0500",family:"RAL Rojos",note:"Rojo tráfico",sys:"RAL",formula:[{ink:"R",p:70,pct:70.0},{ink:"WS",p:18,pct:18.0},{ink:"BK",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 3022",hex:"#d95030",family:"RAL Rojos",note:"Rojo salmón",sys:"RAL",formula:[{ink:"WS",p:50,pct:50.0},{ink:"R",p:40,pct:40.0},{ink:"Y",p:6,pct:6.0},{ink:"BK",p:4,pct:4.0}]},
+{id:"RAL 3024",hex:"#f80000",family:"RAL Rojos",note:"Rojo luminoso",sys:"RAL",formula:[{ink:"R",p:80,pct:80.0},{ink:"WS",p:14,pct:14.0},{ink:"TR",p:4,pct:4.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"RAL 3026",hex:"#fe0000",family:"RAL Rojos",note:"Rojo luminoso claro",sys:"RAL",formula:[{ink:"R",p:82,pct:82.0},{ink:"WS",p:12,pct:12.0},{ink:"TR",p:4,pct:4.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"RAL 3027",hex:"#c5004d",family:"RAL Rojos",note:"Rojo frambuesa",sys:"RAL",formula:[{ink:"RR",p:60,pct:60.0},{ink:"R",p:26,pct:26.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 3028",hex:"#cb3234",family:"RAL Rojos",note:"Rojo puro",sys:"RAL",formula:[{ink:"R",p:62,pct:62.0},{ink:"WS",p:18,pct:18.0},{ink:"RR",p:10,pct:10.0},{ink:"TR",p:6,pct:6.0},{ink:"BK",p:4,pct:4.0}]},
+{id:"RAL 3031",hex:"#b32428",family:"RAL Rojos",note:"Rojo oriente",sys:"RAL",formula:[{ink:"R",p:58,pct:58.0},{ink:"RR",p:22,pct:22.0},{ink:"BK",p:14,pct:14.0},{ink:"TR",p:4,pct:4.0},{ink:"WS",p:2,pct:2.0}]},
+{id:"RAL 3032",hex:"#721422",family:"RAL Rojos",note:"Rojo rubí perla",sys:"RAL",formula:[{ink:"R",p:48,pct:48.0},{ink:"RR",p:28,pct:28.0},{ink:"BK",p:18,pct:18.0},{ink:"TR",p:4,pct:4.0},{ink:"V",p:2,pct:2.0}]},
+{id:"RAL 3033",hex:"#b44c43",family:"RAL Rojos",note:"Rojo perla rosa",sys:"RAL",formula:[{ink:"R",p:50,pct:50.0},{ink:"WS",p:30,pct:30.0},{ink:"Y",p:8,pct:8.0},{ink:"BK",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 4001",hex:"#6d3f5b",family:"RAL Violetas",note:"Lila rojizo",sys:"RAL",formula:[{ink:"V",p:48,pct:48.0},{ink:"RR",p:28,pct:28.0},{ink:"BK",p:16,pct:16.0},{ink:"TR",p:4,pct:4.0},{ink:"B",p:4,pct:4.0}]},
+{id:"RAL 4002",hex:"#922b3e",family:"RAL Violetas",note:"Rojo violáceo",sys:"RAL",formula:[{ink:"RR",p:50,pct:50.0},{ink:"R",p:26,pct:26.0},{ink:"V",p:12,pct:12.0},{ink:"BK",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 4003",hex:"#de4c8a",family:"RAL Violetas",note:"Violeta érica",sys:"RAL",formula:[{ink:"RR",p:58,pct:58.0},{ink:"TR",p:22,pct:22.0},{ink:"R",p:10,pct:10.0},{ink:"WW",p:6,pct:6.0},{ink:"V",p:4,pct:4.0}]},
+{id:"RAL 4004",hex:"#641c34",family:"RAL Violetas",note:"Violeta burdeos",sys:"RAL",formula:[{ink:"RR",p:46,pct:46.0},{ink:"V",p:26,pct:26.0},{ink:"BK",p:18,pct:18.0},{ink:"R",p:6,pct:6.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 4005",hex:"#6c4675",family:"RAL Violetas",note:"Lila azulado",sys:"RAL",formula:[{ink:"V",p:58,pct:58.0},{ink:"RR",p:20,pct:20.0},{ink:"B",p:10,pct:10.0},{ink:"BK",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 4006",hex:"#a03472",family:"RAL Violetas",note:"Violeta tráfico",sys:"RAL",formula:[{ink:"RR",p:52,pct:52.0},{ink:"V",p:28,pct:28.0},{ink:"R",p:10,pct:10.0},{ink:"BK",p:6,pct:6.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 4007",hex:"#4a192c",family:"RAL Violetas",note:"Violeta púrpura",sys:"RAL",formula:[{ink:"V",p:36,pct:36.0},{ink:"RR",p:30,pct:30.0},{ink:"BK",p:24,pct:24.0},{ink:"R",p:6,pct:6.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 4008",hex:"#924e7d",family:"RAL Violetas",note:"Violeta señal",sys:"RAL",formula:[{ink:"V",p:56,pct:56.0},{ink:"RR",p:22,pct:22.0},{ink:"B",p:10,pct:10.0},{ink:"BK",p:6,pct:6.0},{ink:"TR",p:6,pct:6.0}]},
+{id:"RAL 4009",hex:"#a18594",family:"RAL Violetas",note:"Violeta pastel",sys:"RAL",formula:[{ink:"V",p:32,pct:32.0},{ink:"TR",p:38,pct:38.0},{ink:"RR",p:16,pct:16.0},{ink:"WW",p:10,pct:10.0},{ink:"BK",p:4,pct:4.0}]},
+{id:"RAL 4010",hex:"#cf3476",family:"RAL Violetas",note:"Violeta telekom",sys:"RAL",formula:[{ink:"RR",p:56,pct:56.0},{ink:"TR",p:20,pct:20.0},{ink:"V",p:12,pct:12.0},{ink:"R",p:8,pct:8.0},{ink:"WW",p:4,pct:4.0}]},
+{id:"RAL 5000",hex:"#354d73",family:"RAL Azules",note:"Violeta azulado",sys:"RAL",formula:[{ink:"RF",p:54,pct:54.0},{ink:"B",p:24,pct:24.0},{ink:"BK",p:14,pct:14.0},{ink:"TR",p:6,pct:6.0},{ink:"V",p:2,pct:2.0}]},
+{id:"RAL 5001",hex:"#1f3438",family:"RAL Azules",note:"Azul verdoso",sys:"RAL",formula:[{ink:"G",p:36,pct:36.0},{ink:"RF",p:30,pct:30.0},{ink:"BK",p:24,pct:24.0},{ink:"B",p:8,pct:8.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"RAL 5002",hex:"#20214f",family:"RAL Azules",note:"Azul ultramar",sys:"RAL",formula:[{ink:"B",p:50,pct:50.0},{ink:"RF",p:30,pct:30.0},{ink:"V",p:12,pct:12.0},{ink:"BK",p:6,pct:6.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"RAL 5003",hex:"#1d1e33",family:"RAL Azules",note:"Azul zafiro",sys:"RAL",formula:[{ink:"B",p:44,pct:44.0},{ink:"RF",p:32,pct:32.0},{ink:"V",p:12,pct:12.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"RAL 5004",hex:"#18171c",family:"RAL Azules",note:"Azul negro",sys:"RAL",formula:[{ink:"BK",p:60,pct:60.0},{ink:"B",p:22,pct:22.0},{ink:"RF",p:12,pct:12.0},{ink:"V",p:6,pct:6.0}]},
+{id:"RAL 5005",hex:"#1e2460",family:"RAL Azules",note:"Azul señal",sys:"RAL",formula:[{ink:"RF",p:52,pct:52.0},{ink:"B",p:30,pct:30.0},{ink:"V",p:10,pct:10.0},{ink:"BK",p:6,pct:6.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"RAL 5007",hex:"#3e5f8a",family:"RAL Azules",note:"Azul brillante",sys:"RAL",formula:[{ink:"RF",p:48,pct:48.0},{ink:"B",p:26,pct:26.0},{ink:"G",p:12,pct:12.0},{ink:"BK",p:8,pct:8.0},{ink:"TR",p:6,pct:6.0}]},
+{id:"RAL 5008",hex:"#26252d",family:"RAL Azules",note:"Azul grisáceo",sys:"RAL",formula:[{ink:"BK",p:56,pct:56.0},{ink:"B",p:22,pct:22.0},{ink:"RF",p:12,pct:12.0},{ink:"V",p:8,pct:8.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"RAL 5009",hex:"#025669",family:"RAL Azules",note:"Azul agua",sys:"RAL",formula:[{ink:"G",p:44,pct:44.0},{ink:"RF",p:28,pct:28.0},{ink:"B",p:14,pct:14.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 5010",hex:"#0e294b",family:"RAL Azules",note:"Azul gentián",sys:"RAL",formula:[{ink:"RF",p:50,pct:50.0},{ink:"B",p:30,pct:30.0},{ink:"V",p:8,pct:8.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"RAL 5011",hex:"#231a24",family:"RAL Azules",note:"Azul acero",sys:"RAL",formula:[{ink:"BK",p:54,pct:54.0},{ink:"V",p:22,pct:22.0},{ink:"B",p:14,pct:14.0},{ink:"RF",p:8,pct:8.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"RAL 5012",hex:"#3b83bd",family:"RAL Azules",note:"Azul claro",sys:"RAL",formula:[{ink:"RF",p:42,pct:42.0},{ink:"G",p:28,pct:28.0},{ink:"B",p:16,pct:16.0},{ink:"TR",p:10,pct:10.0},{ink:"WW",p:4,pct:4.0}]},
+{id:"RAL 5013",hex:"#232c3f",family:"RAL Azules",note:"Azul cobalto",sys:"RAL",formula:[{ink:"RF",p:46,pct:46.0},{ink:"B",p:30,pct:30.0},{ink:"BK",p:16,pct:16.0},{ink:"V",p:6,pct:6.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"RAL 5014",hex:"#6a93b0",family:"RAL Azules",note:"Azul paloma",sys:"RAL",formula:[{ink:"RF",p:36,pct:36.0},{ink:"G",p:26,pct:26.0},{ink:"TR",p:22,pct:22.0},{ink:"B",p:10,pct:10.0},{ink:"WW",p:6,pct:6.0}]},
+{id:"RAL 5015",hex:"#2271bb",family:"RAL Azules",note:"Azul cielo",sys:"RAL",formula:[{ink:"RF",p:48,pct:48.0},{ink:"B",p:26,pct:26.0},{ink:"G",p:14,pct:14.0},{ink:"TR",p:8,pct:8.0},{ink:"WW",p:4,pct:4.0}]},
+{id:"RAL 5017",hex:"#063971",family:"RAL Azules",note:"Azul tráfico",sys:"RAL",formula:[{ink:"RF",p:54,pct:54.0},{ink:"B",p:28,pct:28.0},{ink:"V",p:8,pct:8.0},{ink:"BK",p:8,pct:8.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"RAL 5018",hex:"#3f888f",family:"RAL Azules",note:"Azul turquesa",sys:"RAL",formula:[{ink:"G",p:54,pct:54.0},{ink:"B",p:22,pct:22.0},{ink:"RF",p:10,pct:10.0},{ink:"BK",p:8,pct:8.0},{ink:"TR",p:6,pct:6.0}]},
+{id:"RAL 5019",hex:"#1b5583",family:"RAL Azules",note:"Azul capri",sys:"RAL",formula:[{ink:"RF",p:50,pct:50.0},{ink:"G",p:22,pct:22.0},{ink:"B",p:16,pct:16.0},{ink:"BK",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 5020",hex:"#1d334a",family:"RAL Azules",note:"Azul oceano",sys:"RAL",formula:[{ink:"RF",p:42,pct:42.0},{ink:"G",p:26,pct:26.0},{ink:"B",p:16,pct:16.0},{ink:"BK",p:12,pct:12.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 5021",hex:"#256d7b",family:"RAL Azules",note:"Azul agua",sys:"RAL",formula:[{ink:"G",p:52,pct:52.0},{ink:"B",p:20,pct:20.0},{ink:"RF",p:14,pct:14.0},{ink:"BK",p:8,pct:8.0},{ink:"TR",p:6,pct:6.0}]},
+{id:"RAL 5022",hex:"#252850",family:"RAL Azules",note:"Azul noche",sys:"RAL",formula:[{ink:"B",p:46,pct:46.0},{ink:"RF",p:28,pct:28.0},{ink:"V",p:14,pct:14.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"RAL 5023",hex:"#49678d",family:"RAL Azules",note:"Azul lejano",sys:"RAL",formula:[{ink:"RF",p:44,pct:44.0},{ink:"B",p:24,pct:24.0},{ink:"G",p:14,pct:14.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:8,pct:8.0}]},
+{id:"RAL 5024",hex:"#5d9b9b",family:"RAL Azules",note:"Azul pastel",sys:"RAL",formula:[{ink:"G",p:50,pct:50.0},{ink:"B",p:18,pct:18.0},{ink:"RF",p:12,pct:12.0},{ink:"TR",p:14,pct:14.0},{ink:"BK",p:6,pct:6.0}]},
+{id:"RAL 5025",hex:"#2a6478",family:"RAL Azules",note:"Azul perla nácar",sys:"RAL",formula:[{ink:"G",p:48,pct:48.0},{ink:"RF",p:24,pct:24.0},{ink:"B",p:14,pct:14.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 5026",hex:"#102c54",family:"RAL Azules",note:"Azul noche perlado",sys:"RAL",formula:[{ink:"RF",p:52,pct:52.0},{ink:"B",p:28,pct:28.0},{ink:"V",p:8,pct:8.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"RAL 6000",hex:"#316650",family:"RAL Verdes",note:"Verde pátina",sys:"RAL",formula:[{ink:"G",p:58,pct:58.0},{ink:"BK",p:24,pct:24.0},{ink:"Y",p:10,pct:10.0},{ink:"TR",p:4,pct:4.0},{ink:"B",p:4,pct:4.0}]},
+{id:"RAL 6001",hex:"#287233",family:"RAL Verdes",note:"Verde esmeralda",sys:"RAL",formula:[{ink:"G",p:64,pct:64.0},{ink:"BK",p:18,pct:18.0},{ink:"Y",p:12,pct:12.0},{ink:"TR",p:4,pct:4.0},{ink:"B",p:2,pct:2.0}]},
+{id:"RAL 6002",hex:"#2d572c",family:"RAL Verdes",note:"Verde hoja",sys:"RAL",formula:[{ink:"G",p:62,pct:62.0},{ink:"BK",p:20,pct:20.0},{ink:"Y",p:12,pct:12.0},{ink:"TR",p:4,pct:4.0},{ink:"B",p:2,pct:2.0}]},
+{id:"RAL 6003",hex:"#424632",family:"RAL Verdes",note:"Verde oliva",sys:"RAL",formula:[{ink:"G",p:40,pct:40.0},{ink:"Y",p:22,pct:22.0},{ink:"BK",p:26,pct:26.0},{ink:"TR",p:8,pct:8.0},{ink:"B",p:4,pct:4.0}]},
+{id:"RAL 6004",hex:"#1f3a3d",family:"RAL Verdes",note:"Verde azulado",sys:"RAL",formula:[{ink:"G",p:46,pct:46.0},{ink:"B",p:18,pct:18.0},{ink:"BK",p:26,pct:26.0},{ink:"RF",p:6,pct:6.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 6005",hex:"#2f4538",family:"RAL Verdes",note:"Verde musgo",sys:"RAL",formula:[{ink:"G",p:52,pct:52.0},{ink:"BK",p:28,pct:28.0},{ink:"Y",p:12,pct:12.0},{ink:"TR",p:4,pct:4.0},{ink:"B",p:4,pct:4.0}]},
+{id:"RAL 6006",hex:"#3e3b32",family:"RAL Verdes",note:"Verde grisáceo oliva",sys:"RAL",formula:[{ink:"BK",p:42,pct:42.0},{ink:"G",p:28,pct:28.0},{ink:"Y",p:16,pct:16.0},{ink:"TR",p:10,pct:10.0},{ink:"WS",p:4,pct:4.0}]},
+{id:"RAL 6007",hex:"#343b29",family:"RAL Verdes",note:"Verde botella",sys:"RAL",formula:[{ink:"G",p:42,pct:42.0},{ink:"BK",p:34,pct:34.0},{ink:"Y",p:16,pct:16.0},{ink:"TR",p:4,pct:4.0},{ink:"B",p:4,pct:4.0}]},
+{id:"RAL 6008",hex:"#39352a",family:"RAL Verdes",note:"Verde pardo",sys:"RAL",formula:[{ink:"BK",p:44,pct:44.0},{ink:"G",p:30,pct:30.0},{ink:"Y",p:14,pct:14.0},{ink:"TR",p:8,pct:8.0},{ink:"WS",p:4,pct:4.0}]},
+{id:"RAL 6009",hex:"#31372b",family:"RAL Verdes",note:"Verde abeto",sys:"RAL",formula:[{ink:"G",p:46,pct:46.0},{ink:"BK",p:34,pct:34.0},{ink:"Y",p:12,pct:12.0},{ink:"TR",p:4,pct:4.0},{ink:"B",p:4,pct:4.0}]},
+{id:"RAL 6010",hex:"#35682d",family:"RAL Verdes",note:"Verde hierba",sys:"RAL",formula:[{ink:"G",p:62,pct:62.0},{ink:"BK",p:18,pct:18.0},{ink:"Y",p:14,pct:14.0},{ink:"TR",p:4,pct:4.0},{ink:"B",p:2,pct:2.0}]},
+{id:"RAL 6011",hex:"#587246",family:"RAL Verdes",note:"Verde reseda",sys:"RAL",formula:[{ink:"G",p:54,pct:54.0},{ink:"BK",p:22,pct:22.0},{ink:"Y",p:16,pct:16.0},{ink:"TR",p:6,pct:6.0},{ink:"B",p:2,pct:2.0}]},
+{id:"RAL 6012",hex:"#343e40",family:"RAL Verdes",note:"Verde negro",sys:"RAL",formula:[{ink:"G",p:34,pct:34.0},{ink:"BK",p:36,pct:36.0},{ink:"B",p:16,pct:16.0},{ink:"RF",p:10,pct:10.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 6013",hex:"#6c7156",family:"RAL Verdes",note:"Verde caña",sys:"RAL",formula:[{ink:"G",p:44,pct:44.0},{ink:"Y",p:20,pct:20.0},{ink:"BK",p:22,pct:22.0},{ink:"TR",p:10,pct:10.0},{ink:"WS",p:4,pct:4.0}]},
+{id:"RAL 6014",hex:"#47402e",family:"RAL Verdes",note:"Verde amarillo",sys:"RAL",formula:[{ink:"BK",p:40,pct:40.0},{ink:"G",p:28,pct:28.0},{ink:"Y",p:18,pct:18.0},{ink:"TR",p:10,pct:10.0},{ink:"WS",p:4,pct:4.0}]},
+{id:"RAL 6015",hex:"#3b3c36",family:"RAL Verdes",note:"Verde negro oliva",sys:"RAL",formula:[{ink:"BK",p:46,pct:46.0},{ink:"G",p:28,pct:28.0},{ink:"Y",p:14,pct:14.0},{ink:"TR",p:8,pct:8.0},{ink:"WS",p:4,pct:4.0}]},
+{id:"RAL 6016",hex:"#1e5945",family:"RAL Verdes",note:"Verde turquesa",sys:"RAL",formula:[{ink:"G",p:60,pct:60.0},{ink:"BK",p:24,pct:24.0},{ink:"B",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0},{ink:"Y",p:4,pct:4.0}]},
+{id:"RAL 6017",hex:"#4c9141",family:"RAL Verdes",note:"Verde mayo",sys:"RAL",formula:[{ink:"G",p:64,pct:64.0},{ink:"Y",p:20,pct:20.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:4,pct:4.0},{ink:"B",p:2,pct:2.0}]},
+{id:"RAL 6018",hex:"#57a639",family:"RAL Verdes",note:"Verde amarillo",sys:"RAL",formula:[{ink:"G",p:62,pct:62.0},{ink:"Y",p:28,pct:28.0},{ink:"TR",p:6,pct:6.0},{ink:"BK",p:4,pct:4.0}]},
+{id:"RAL 6019",hex:"#bdecb6",family:"RAL Verdes",note:"Verde blancuzco",sys:"RAL",formula:[{ink:"G",p:30,pct:30.0},{ink:"TR",p:48,pct:48.0},{ink:"Y",p:16,pct:16.0},{ink:"WW",p:6,pct:6.0}]},
+{id:"RAL 6020",hex:"#2e3a23",family:"RAL Verdes",note:"Verde cromo",sys:"RAL",formula:[{ink:"G",p:46,pct:46.0},{ink:"BK",p:36,pct:36.0},{ink:"Y",p:12,pct:12.0},{ink:"TR",p:4,pct:4.0},{ink:"B",p:2,pct:2.0}]},
+{id:"RAL 6021",hex:"#89ac76",family:"RAL Verdes",note:"Verde pálido",sys:"RAL",formula:[{ink:"G",p:44,pct:44.0},{ink:"TR",p:28,pct:28.0},{ink:"Y",p:18,pct:18.0},{ink:"WW",p:8,pct:8.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"RAL 6022",hex:"#25221b",family:"RAL Verdes",note:"Verde oliva pardo",sys:"RAL",formula:[{ink:"BK",p:52,pct:52.0},{ink:"G",p:24,pct:24.0},{ink:"Y",p:14,pct:14.0},{ink:"TR",p:6,pct:6.0},{ink:"WS",p:4,pct:4.0}]},
+{id:"RAL 6024",hex:"#308446",family:"RAL Verdes",note:"Verde tráfico",sys:"RAL",formula:[{ink:"G",p:64,pct:64.0},{ink:"Y",p:18,pct:18.0},{ink:"BK",p:12,pct:12.0},{ink:"TR",p:4,pct:4.0},{ink:"B",p:2,pct:2.0}]},
+{id:"RAL 6025",hex:"#3d642d",family:"RAL Verdes",note:"Verde helecho",sys:"RAL",formula:[{ink:"G",p:60,pct:60.0},{ink:"Y",p:20,pct:20.0},{ink:"BK",p:14,pct:14.0},{ink:"TR",p:4,pct:4.0},{ink:"B",p:2,pct:2.0}]},
+{id:"RAL 6026",hex:"#015d52",family:"RAL Verdes",note:"Verde opal",sys:"RAL",formula:[{ink:"G",p:62,pct:62.0},{ink:"B",p:16,pct:16.0},{ink:"BK",p:16,pct:16.0},{ink:"TR",p:4,pct:4.0},{ink:"RF",p:2,pct:2.0}]},
+{id:"RAL 6027",hex:"#84c3be",family:"RAL Verdes",note:"Verde claro",sys:"RAL",formula:[{ink:"G",p:38,pct:38.0},{ink:"TR",p:36,pct:36.0},{ink:"B",p:14,pct:14.0},{ink:"WW",p:10,pct:10.0},{ink:"RF",p:2,pct:2.0}]},
+{id:"RAL 6028",hex:"#2c5545",family:"RAL Verdes",note:"Verde pino",sys:"RAL",formula:[{ink:"G",p:58,pct:58.0},{ink:"BK",p:24,pct:24.0},{ink:"B",p:10,pct:10.0},{ink:"TR",p:4,pct:4.0},{ink:"Y",p:4,pct:4.0}]},
+{id:"RAL 6029",hex:"#20603d",family:"RAL Verdes",note:"Verde menta",sys:"RAL",formula:[{ink:"G",p:62,pct:62.0},{ink:"BK",p:20,pct:20.0},{ink:"Y",p:10,pct:10.0},{ink:"B",p:4,pct:4.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 6032",hex:"#317f43",family:"RAL Verdes",note:"Verde señal",sys:"RAL",formula:[{ink:"G",p:62,pct:62.0},{ink:"Y",p:16,pct:16.0},{ink:"BK",p:14,pct:14.0},{ink:"TR",p:4,pct:4.0},{ink:"B",p:4,pct:4.0}]},
+{id:"RAL 6033",hex:"#497e76",family:"RAL Verdes",note:"Verde menta turquesa",sys:"RAL",formula:[{ink:"G",p:50,pct:50.0},{ink:"B",p:16,pct:16.0},{ink:"BK",p:18,pct:18.0},{ink:"TR",p:10,pct:10.0},{ink:"RF",p:6,pct:6.0}]},
+{id:"RAL 6034",hex:"#7fb5b5",family:"RAL Verdes",note:"Verde pastel turquesa",sys:"RAL",formula:[{ink:"G",p:40,pct:40.0},{ink:"TR",p:34,pct:34.0},{ink:"B",p:14,pct:14.0},{ink:"WW",p:10,pct:10.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"RAL 6035",hex:"#1c542d",family:"RAL Verdes",note:"Verde perla nácar",sys:"RAL",formula:[{ink:"G",p:64,pct:64.0},{ink:"BK",p:22,pct:22.0},{ink:"Y",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0},{ink:"B",p:2,pct:2.0}]},
+{id:"RAL 6036",hex:"#193737",family:"RAL Verdes",note:"Verde perla opal",sys:"RAL",formula:[{ink:"G",p:44,pct:44.0},{ink:"BK",p:32,pct:32.0},{ink:"B",p:14,pct:14.0},{ink:"RF",p:6,pct:6.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 7000",hex:"#78858b",family:"RAL Grises",note:"Gris ardilla",sys:"RAL",formula:[{ink:"BK",p:36,pct:36.0},{ink:"TR",p:36,pct:36.0},{ink:"RF",p:12,pct:12.0},{ink:"B",p:8,pct:8.0},{ink:"V",p:6,pct:6.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"RAL 7001",hex:"#8a9597",family:"RAL Grises",note:"Gris plata",sys:"RAL",formula:[{ink:"BK",p:30,pct:30.0},{ink:"TR",p:42,pct:42.0},{ink:"RF",p:12,pct:12.0},{ink:"G",p:8,pct:8.0},{ink:"V",p:6,pct:6.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"RAL 7002",hex:"#817f68",family:"RAL Grises",note:"Gris oliva",sys:"RAL",formula:[{ink:"BK",p:38,pct:38.0},{ink:"TR",p:34,pct:34.0},{ink:"Y",p:12,pct:12.0},{ink:"WS",p:8,pct:8.0},{ink:"WW",p:6,pct:6.0},{ink:"G",p:2,pct:2.0}]},
+{id:"RAL 7003",hex:"#6c7059",family:"RAL Grises",note:"Gris musgo",sys:"RAL",formula:[{ink:"BK",p:44,pct:44.0},{ink:"G",p:22,pct:22.0},{ink:"Y",p:16,pct:16.0},{ink:"TR",p:12,pct:12.0},{ink:"WS",p:4,pct:4.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"RAL 7004",hex:"#969992",family:"RAL Grises",note:"Gris señal",sys:"RAL",formula:[{ink:"BK",p:26,pct:26.0},{ink:"TR",p:48,pct:48.0},{ink:"G",p:10,pct:10.0},{ink:"RF",p:8,pct:8.0},{ink:"V",p:6,pct:6.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"RAL 7005",hex:"#646b63",family:"RAL Grises",note:"Gris ratón",sys:"RAL",formula:[{ink:"BK",p:48,pct:48.0},{ink:"G",p:20,pct:20.0},{ink:"TR",p:18,pct:18.0},{ink:"Y",p:8,pct:8.0},{ink:"WS",p:4,pct:4.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"RAL 7006",hex:"#6d6552",family:"RAL Grises",note:"Gris beige",sys:"RAL",formula:[{ink:"BK",p:46,pct:46.0},{ink:"TR",p:28,pct:28.0},{ink:"Y",p:12,pct:12.0},{ink:"WS",p:8,pct:8.0},{ink:"WW",p:4,pct:4.0},{ink:"G",p:2,pct:2.0}]},
+{id:"RAL 7008",hex:"#6a5f31",family:"RAL Grises",note:"Gris kaki",sys:"RAL",formula:[{ink:"BK",p:40,pct:40.0},{ink:"Y",p:28,pct:28.0},{ink:"TR",p:18,pct:18.0},{ink:"WS",p:10,pct:10.0},{ink:"G",p:4,pct:4.0}]},
+{id:"RAL 7009",hex:"#4d5645",family:"RAL Grises",note:"Gris verdoso",sys:"RAL",formula:[{ink:"BK",p:52,pct:52.0},{ink:"G",p:24,pct:24.0},{ink:"Y",p:12,pct:12.0},{ink:"TR",p:8,pct:8.0},{ink:"WS",p:4,pct:4.0}]},
+{id:"RAL 7010",hex:"#4c514a",family:"RAL Grises",note:"Gris lona",sys:"RAL",formula:[{ink:"BK",p:54,pct:54.0},{ink:"G",p:22,pct:22.0},{ink:"Y",p:10,pct:10.0},{ink:"TR",p:10,pct:10.0},{ink:"WS",p:4,pct:4.0}]},
+{id:"RAL 7011",hex:"#434b4d",family:"RAL Grises",note:"Gris hierro",sys:"RAL",formula:[{ink:"BK",p:54,pct:54.0},{ink:"TR",p:22,pct:22.0},{ink:"G",p:10,pct:10.0},{ink:"B",p:8,pct:8.0},{ink:"RF",p:4,pct:4.0},{ink:"V",p:2,pct:2.0}]},
+{id:"RAL 7012",hex:"#4e5754",family:"RAL Grises",note:"Gris basalto",sys:"RAL",formula:[{ink:"BK",p:52,pct:52.0},{ink:"G",p:22,pct:22.0},{ink:"TR",p:16,pct:16.0},{ink:"B",p:6,pct:6.0},{ink:"RF",p:4,pct:4.0}]},
+{id:"RAL 7013",hex:"#464531",family:"RAL Grises",note:"Gris pardo",sys:"RAL",formula:[{ink:"BK",p:52,pct:52.0},{ink:"Y",p:22,pct:22.0},{ink:"G",p:12,pct:12.0},{ink:"TR",p:10,pct:10.0},{ink:"WS",p:4,pct:4.0}]},
+{id:"RAL 7015",hex:"#434750",family:"RAL Grises",note:"Gris pizarra",sys:"RAL",formula:[{ink:"BK",p:52,pct:52.0},{ink:"RF",p:16,pct:16.0},{ink:"B",p:14,pct:14.0},{ink:"V",p:8,pct:8.0},{ink:"TR",p:8,pct:8.0},{ink:"G",p:2,pct:2.0}]},
+{id:"RAL 7016",hex:"#293133",family:"RAL Grises",note:"Gris antracita",sys:"RAL",formula:[{ink:"BK",p:66,pct:66.0},{ink:"RF",p:12,pct:12.0},{ink:"G",p:10,pct:10.0},{ink:"B",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 7021",hex:"#23282b",family:"RAL Grises",note:"Gris negro",sys:"RAL",formula:[{ink:"BK",p:72,pct:72.0},{ink:"RF",p:10,pct:10.0},{ink:"G",p:8,pct:8.0},{ink:"B",p:6,pct:6.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 7022",hex:"#332f2c",family:"RAL Grises",note:"Gris umbra",sys:"RAL",formula:[{ink:"BK",p:68,pct:68.0},{ink:"WS",p:12,pct:12.0},{ink:"Y",p:8,pct:8.0},{ink:"TR",p:8,pct:8.0},{ink:"WW",p:4,pct:4.0}]},
+{id:"RAL 7023",hex:"#686c5e",family:"RAL Grises",note:"Gris cemento",sys:"RAL",formula:[{ink:"BK",p:44,pct:44.0},{ink:"G",p:22,pct:22.0},{ink:"Y",p:14,pct:14.0},{ink:"TR",p:14,pct:14.0},{ink:"WS",p:4,pct:4.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"RAL 7024",hex:"#474a51",family:"RAL Grises",note:"Gris grafito",sys:"RAL",formula:[{ink:"BK",p:56,pct:56.0},{ink:"RF",p:14,pct:14.0},{ink:"B",p:12,pct:12.0},{ink:"V",p:8,pct:8.0},{ink:"TR",p:8,pct:8.0},{ink:"G",p:2,pct:2.0}]},
+{id:"RAL 7026",hex:"#2f353b",family:"RAL Grises",note:"Gris granito",sys:"RAL",formula:[{ink:"BK",p:64,pct:64.0},{ink:"RF",p:14,pct:14.0},{ink:"B",p:10,pct:10.0},{ink:"G",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 7030",hex:"#8b8c7a",family:"RAL Grises",note:"Gris piedra",sys:"RAL",formula:[{ink:"BK",p:26,pct:26.0},{ink:"TR",p:42,pct:42.0},{ink:"G",p:14,pct:14.0},{ink:"Y",p:10,pct:10.0},{ink:"WS",p:4,pct:4.0},{ink:"WW",p:4,pct:4.0}]},
+{id:"RAL 7031",hex:"#474b4e",family:"RAL Grises",note:"Gris azulado",sys:"RAL",formula:[{ink:"BK",p:56,pct:56.0},{ink:"RF",p:14,pct:14.0},{ink:"B",p:12,pct:12.0},{ink:"G",p:8,pct:8.0},{ink:"TR",p:8,pct:8.0},{ink:"V",p:2,pct:2.0}]},
+{id:"RAL 7032",hex:"#b8b799",family:"RAL Grises",note:"Gris guijarro",sys:"RAL",formula:[{ink:"BK",p:14,pct:14.0},{ink:"TR",p:58,pct:58.0},{ink:"G",p:12,pct:12.0},{ink:"Y",p:8,pct:8.0},{ink:"WW",p:6,pct:6.0},{ink:"WS",p:2,pct:2.0}]},
+{id:"RAL 7033",hex:"#7d8471",family:"RAL Grises",note:"Gris cemento",sys:"RAL",formula:[{ink:"BK",p:34,pct:34.0},{ink:"G",p:26,pct:26.0},{ink:"Y",p:16,pct:16.0},{ink:"TR",p:18,pct:18.0},{ink:"WS",p:4,pct:4.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"RAL 7034",hex:"#8f8b66",family:"RAL Grises",note:"Gris amarillento",sys:"RAL",formula:[{ink:"BK",p:32,pct:32.0},{ink:"Y",p:26,pct:26.0},{ink:"G",p:18,pct:18.0},{ink:"TR",p:16,pct:16.0},{ink:"WS",p:6,pct:6.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"RAL 7035",hex:"#d7d7d7",family:"RAL Grises",note:"Gris claro",sys:"RAL",formula:[{ink:"BK",p:8,pct:8.0},{ink:"TR",p:76,pct:76.0},{ink:"RF",p:6,pct:6.0},{ink:"V",p:4,pct:4.0},{ink:"WW",p:4,pct:4.0},{ink:"G",p:2,pct:2.0}]},
+{id:"RAL 7036",hex:"#7f7679",family:"RAL Grises",note:"Gris platino",sys:"RAL",formula:[{ink:"BK",p:40,pct:40.0},{ink:"TR",p:34,pct:34.0},{ink:"V",p:10,pct:10.0},{ink:"RR",p:8,pct:8.0},{ink:"RF",p:6,pct:6.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"RAL 7037",hex:"#7d7f7d",family:"RAL Grises",note:"Gris polvo",sys:"RAL",formula:[{ink:"BK",p:38,pct:38.0},{ink:"TR",p:40,pct:40.0},{ink:"G",p:8,pct:8.0},{ink:"RF",p:6,pct:6.0},{ink:"V",p:6,pct:6.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"RAL 7038",hex:"#b5b8b1",family:"RAL Grises",note:"Gris ágata",sys:"RAL",formula:[{ink:"BK",p:16,pct:16.0},{ink:"TR",p:62,pct:62.0},{ink:"G",p:8,pct:8.0},{ink:"RF",p:6,pct:6.0},{ink:"V",p:6,pct:6.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"RAL 7039",hex:"#6c6960",family:"RAL Grises",note:"Gris cuarzo",sys:"RAL",formula:[{ink:"BK",p:46,pct:46.0},{ink:"TR",p:30,pct:30.0},{ink:"G",p:10,pct:10.0},{ink:"Y",p:8,pct:8.0},{ink:"WS",p:4,pct:4.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"RAL 7040",hex:"#9da1aa",family:"RAL Grises",note:"Gris ventana",sys:"RAL",formula:[{ink:"BK",p:20,pct:20.0},{ink:"TR",p:54,pct:54.0},{ink:"RF",p:12,pct:12.0},{ink:"B",p:8,pct:8.0},{ink:"V",p:4,pct:4.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"RAL 7042",hex:"#8f9695",family:"RAL Grises",note:"Gris tráfico A",sys:"RAL",formula:[{ink:"BK",p:28,pct:28.0},{ink:"TR",p:44,pct:44.0},{ink:"G",p:12,pct:12.0},{ink:"RF",p:8,pct:8.0},{ink:"V",p:6,pct:6.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"RAL 7043",hex:"#4e5452",family:"RAL Grises",note:"Gris tráfico B",sys:"RAL",formula:[{ink:"BK",p:54,pct:54.0},{ink:"G",p:20,pct:20.0},{ink:"TR",p:16,pct:16.0},{ink:"RF",p:6,pct:6.0},{ink:"B",p:4,pct:4.0}]},
+{id:"RAL 7044",hex:"#cac4b0",family:"RAL Grises",note:"Gris seda",sys:"RAL",formula:[{ink:"BK",p:10,pct:10.0},{ink:"TR",p:60,pct:60.0},{ink:"Y",p:12,pct:12.0},{ink:"WS",p:8,pct:8.0},{ink:"WW",p:8,pct:8.0},{ink:"G",p:2,pct:2.0}]},
+{id:"RAL 7045",hex:"#91969a",family:"RAL Grises",note:"Gris teleguía",sys:"RAL",formula:[{ink:"BK",p:24,pct:24.0},{ink:"TR",p:50,pct:50.0},{ink:"RF",p:12,pct:12.0},{ink:"B",p:8,pct:8.0},{ink:"V",p:4,pct:4.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"RAL 7046",hex:"#82898f",family:"RAL Grises",note:"Gris teleguía 2",sys:"RAL",formula:[{ink:"BK",p:30,pct:30.0},{ink:"TR",p:44,pct:44.0},{ink:"RF",p:12,pct:12.0},{ink:"B",p:8,pct:8.0},{ink:"V",p:4,pct:4.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"RAL 7047",hex:"#d0d0d0",family:"RAL Grises",note:"Gris teleguía 4",sys:"RAL",formula:[{ink:"BK",p:8,pct:8.0},{ink:"TR",p:76,pct:76.0},{ink:"RF",p:6,pct:6.0},{ink:"V",p:4,pct:4.0},{ink:"WW",p:4,pct:4.0},{ink:"G",p:2,pct:2.0}]},
+{id:"RAL 7048",hex:"#898176",family:"RAL Grises",note:"Gris perlado ratón",sys:"RAL",formula:[{ink:"BK",p:36,pct:36.0},{ink:"TR",p:32,pct:32.0},{ink:"WS",p:14,pct:14.0},{ink:"Y",p:10,pct:10.0},{ink:"WW",p:6,pct:6.0},{ink:"G",p:2,pct:2.0}]},
+{id:"RAL 8000",hex:"#887142",family:"RAL Marrones",note:"Verde pardo",sys:"RAL",formula:[{ink:"WS",p:40,pct:40.0},{ink:"Y",p:28,pct:28.0},{ink:"BK",p:22,pct:22.0},{ink:"TR",p:6,pct:6.0},{ink:"R",p:4,pct:4.0}]},
+{id:"RAL 8001",hex:"#9c6b30",family:"RAL Marrones",note:"Marrón ocre",sys:"RAL",formula:[{ink:"WS",p:48,pct:48.0},{ink:"Y",p:30,pct:30.0},{ink:"BK",p:16,pct:16.0},{ink:"TR",p:4,pct:4.0},{ink:"R",p:2,pct:2.0}]},
+{id:"RAL 8002",hex:"#7b5141",family:"RAL Marrones",note:"Marrón señal",sys:"RAL",formula:[{ink:"R",p:34,pct:34.0},{ink:"WS",p:36,pct:36.0},{ink:"BK",p:20,pct:20.0},{ink:"Y",p:6,pct:6.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 8003",hex:"#80411b",family:"RAL Marrones",note:"Marrón barro",sys:"RAL",formula:[{ink:"WS",p:52,pct:52.0},{ink:"Y",p:26,pct:26.0},{ink:"BK",p:16,pct:16.0},{ink:"R",p:4,pct:4.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"RAL 8004",hex:"#8f4e35",family:"RAL Marrones",note:"Marrón cobre",sys:"RAL",formula:[{ink:"WS",p:48,pct:48.0},{ink:"R",p:28,pct:28.0},{ink:"Y",p:12,pct:12.0},{ink:"BK",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 8007",hex:"#6f4f28",family:"RAL Marrones",note:"Marrón ciervo",sys:"RAL",formula:[{ink:"WS",p:44,pct:44.0},{ink:"Y",p:28,pct:28.0},{ink:"BK",p:20,pct:20.0},{ink:"R",p:4,pct:4.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 8008",hex:"#734222",family:"RAL Marrones",note:"Marrón oliva",sys:"RAL",formula:[{ink:"WS",p:48,pct:48.0},{ink:"Y",p:26,pct:26.0},{ink:"BK",p:20,pct:20.0},{ink:"R",p:4,pct:4.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"RAL 8011",hex:"#5b3a29",family:"RAL Marrones",note:"Marrón nuez",sys:"RAL",formula:[{ink:"R",p:36,pct:36.0},{ink:"WS",p:34,pct:34.0},{ink:"BK",p:22,pct:22.0},{ink:"Y",p:4,pct:4.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 8012",hex:"#592321",family:"RAL Marrones",note:"Marrón rojo",sys:"RAL",formula:[{ink:"R",p:42,pct:42.0},{ink:"WS",p:26,pct:26.0},{ink:"BK",p:24,pct:24.0},{ink:"RR",p:4,pct:4.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 8014",hex:"#382c1e",family:"RAL Marrones",note:"Marrón sepia",sys:"RAL",formula:[{ink:"BK",p:52,pct:52.0},{ink:"WS",p:24,pct:24.0},{ink:"Y",p:12,pct:12.0},{ink:"R",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 8015",hex:"#633a34",family:"RAL Marrones",note:"Marrón castaño",sys:"RAL",formula:[{ink:"R",p:40,pct:40.0},{ink:"WS",p:30,pct:30.0},{ink:"BK",p:22,pct:22.0},{ink:"Y",p:4,pct:4.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 8016",hex:"#4c2f27",family:"RAL Marrones",note:"Marrón caoba",sys:"RAL",formula:[{ink:"R",p:38,pct:38.0},{ink:"WS",p:28,pct:28.0},{ink:"BK",p:26,pct:26.0},{ink:"Y",p:4,pct:4.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 8017",hex:"#45322e",family:"RAL Marrones",note:"Marrón chocolate",sys:"RAL",formula:[{ink:"R",p:36,pct:36.0},{ink:"WS",p:26,pct:26.0},{ink:"BK",p:28,pct:28.0},{ink:"Y",p:4,pct:4.0},{ink:"TR",p:4,pct:4.0},{ink:"V",p:2,pct:2.0}]},
+{id:"RAL 8019",hex:"#403a3a",family:"RAL Marrones",note:"Gris pardo",sys:"RAL",formula:[{ink:"BK",p:54,pct:54.0},{ink:"WS",p:20,pct:20.0},{ink:"R",p:14,pct:14.0},{ink:"Y",p:6,pct:6.0},{ink:"TR",p:4,pct:4.0},{ink:"V",p:2,pct:2.0}]},
+{id:"RAL 8022",hex:"#212121",family:"RAL Marrones",note:"Negro pardo",sys:"RAL",formula:[{ink:"BK",p:80,pct:80.0},{ink:"WS",p:10,pct:10.0},{ink:"R",p:6,pct:6.0},{ink:"Y",p:2,pct:2.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"RAL 8023",hex:"#a65e2e",family:"RAL Marrones",note:"Naranja pardo",sys:"RAL",formula:[{ink:"WS",p:52,pct:52.0},{ink:"Y",p:28,pct:28.0},{ink:"BK",p:14,pct:14.0},{ink:"R",p:4,pct:4.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"RAL 8024",hex:"#79553d",family:"RAL Marrones",note:"Marrón beige",sys:"RAL",formula:[{ink:"WS",p:44,pct:44.0},{ink:"Y",p:28,pct:28.0},{ink:"BK",p:18,pct:18.0},{ink:"R",p:6,pct:6.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 8025",hex:"#755c48",family:"RAL Marrones",note:"Marrón pálido",sys:"RAL",formula:[{ink:"WS",p:40,pct:40.0},{ink:"Y",p:28,pct:28.0},{ink:"BK",p:20,pct:20.0},{ink:"TR",p:8,pct:8.0},{ink:"R",p:4,pct:4.0}]},
+{id:"RAL 8028",hex:"#4e3b31",family:"RAL Marrones",note:"Marrón tierra",sys:"RAL",formula:[{ink:"R",p:34,pct:34.0},{ink:"WS",p:30,pct:30.0},{ink:"BK",p:26,pct:26.0},{ink:"Y",p:6,pct:6.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 8029",hex:"#763c28",family:"RAL Marrones",note:"Cobre perlado",sys:"RAL",formula:[{ink:"WS",p:50,pct:50.0},{ink:"R",p:28,pct:28.0},{ink:"Y",p:10,pct:10.0},{ink:"BK",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 9001",hex:"#fdf4e3",family:"RAL Blancos",note:"Blanco crema",sys:"RAL",formula:[{ink:"WW",p:88,pct:88.0},{ink:"Y",p:6,pct:6.0},{ink:"WS",p:2,pct:2.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"RAL 9002",hex:"#e7ebda",family:"RAL Blancos",note:"Blanco grisáceo",sys:"RAL",formula:[{ink:"WW",p:82,pct:82.0},{ink:"G",p:8,pct:8.0},{ink:"Y",p:4,pct:4.0},{ink:"TR",p:6,pct:6.0}]},
+{id:"RAL 9003",hex:"#f4f4f4",family:"RAL Blancos",note:"Blanco señal",sys:"RAL",formula:[{ink:"WW",p:92,pct:92.0},{ink:"TR",p:6,pct:6.0},{ink:"RF",p:1,pct:1.0},{ink:"V",p:1,pct:1.0}]},
+{id:"RAL 9004",hex:"#282828",family:"RAL Negros",note:"Negro señal",sys:"RAL",formula:[{ink:"BK",p:90,pct:90.0},{ink:"TR",p:8,pct:8.0},{ink:"RF",p:1,pct:1.0},{ink:"V",p:1,pct:1.0}]},
+{id:"RAL 9005",hex:"#0a0a0a",family:"RAL Negros",note:"Negro intenso",sys:"RAL",formula:[{ink:"BK",p:98,pct:98.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"RAL 9006",hex:"#a5a5a5",family:"RAL Grises",note:"Aluminio blanco",sys:"RAL",formula:[{ink:"BK",p:18,pct:18.0},{ink:"TR",p:60,pct:60.0},{ink:"RF",p:10,pct:10.0},{ink:"V",p:6,pct:6.0},{ink:"WW",p:4,pct:4.0},{ink:"G",p:2,pct:2.0}]},
+{id:"RAL 9007",hex:"#8f8f8f",family:"RAL Grises",note:"Aluminio gris",sys:"RAL",formula:[{ink:"BK",p:26,pct:26.0},{ink:"TR",p:50,pct:50.0},{ink:"RF",p:10,pct:10.0},{ink:"V",p:6,pct:6.0},{ink:"WW",p:6,pct:6.0},{ink:"G",p:2,pct:2.0}]},
+{id:"RAL 9010",hex:"#ffffff",family:"RAL Blancos",note:"Blanco puro",sys:"RAL",formula:[{ink:"WW",p:98,pct:98.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"RAL 9011",hex:"#1c1c1c",family:"RAL Negros",note:"Negro grafito",sys:"RAL",formula:[{ink:"BK",p:94,pct:94.0},{ink:"TR",p:4,pct:4.0},{ink:"RF",p:1,pct:1.0},{ink:"V",p:1,pct:1.0}]},
+{id:"RAL 9016",hex:"#f6f6f6",family:"RAL Blancos",note:"Blanco tráfico",sys:"RAL",formula:[{ink:"WW",p:94,pct:94.0},{ink:"TR",p:4,pct:4.0},{ink:"G",p:1,pct:1.0},{ink:"RF",p:1,pct:1.0}]},
+{id:"RAL 9017",hex:"#1e1e1e",family:"RAL Negros",note:"Negro tráfico",sys:"RAL",formula:[{ink:"BK",p:92,pct:92.0},{ink:"TR",p:6,pct:6.0},{ink:"RF",p:1,pct:1.0},{ink:"V",p:1,pct:1.0}]},
+{id:"RAL 9018",hex:"#d7d7d7",family:"RAL Blancos",note:"Blanco papiro",sys:"RAL",formula:[{ink:"BK",p:8,pct:8.0},{ink:"TR",p:72,pct:72.0},{ink:"RF",p:6,pct:6.0},{ink:"V",p:4,pct:4.0},{ink:"WW",p:8,pct:8.0},{ink:"G",p:2,pct:2.0}]},
+{id:"CSS AliceBlue",hex:"#f0f8ff",family:"CSS Azules",note:"",sys:"CSS",formula:[{ink:"WW",p:80,pct:80.0},{ink:"RF",p:10,pct:10.0},{ink:"G",p:6,pct:6.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"CSS Crimson",hex:"#dc143c",family:"CSS Rojos",note:"",sys:"CSS",formula:[{ink:"R",p:64,pct:64.0},{ink:"RR",p:22,pct:22.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"CSS DarkRed",hex:"#8b0000",family:"CSS Rojos",note:"",sys:"CSS",formula:[{ink:"R",p:54,pct:54.0},{ink:"RR",p:24,pct:24.0},{ink:"BK",p:20,pct:20.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"CSS FireBrick",hex:"#b22222",family:"CSS Rojos",note:"",sys:"CSS",formula:[{ink:"R",p:58,pct:58.0},{ink:"RR",p:20,pct:20.0},{ink:"BK",p:18,pct:18.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"CSS IndianRed",hex:"#cd5c5c",family:"CSS Rojos",note:"",sys:"CSS",formula:[{ink:"R",p:46,pct:46.0},{ink:"WS",p:24,pct:24.0},{ink:"TR",p:18,pct:18.0},{ink:"WW",p:8,pct:8.0},{ink:"RR",p:4,pct:4.0}]},
+{id:"CSS LightCoral",hex:"#f08080",family:"CSS Rojos",note:"",sys:"CSS",formula:[{ink:"R",p:36,pct:36.0},{ink:"WS",p:26,pct:26.0},{ink:"TR",p:26,pct:26.0},{ink:"WW",p:10,pct:10.0},{ink:"RR",p:2,pct:2.0}]},
+{id:"CSS LightSalmon",hex:"#ffa07a",family:"CSS Naranjas",note:"",sys:"CSS",formula:[{ink:"WS",p:46,pct:46.0},{ink:"Y",p:28,pct:28.0},{ink:"TR",p:18,pct:18.0},{ink:"WW",p:8,pct:8.0}]},
+{id:"CSS Salmon",hex:"#fa8072",family:"CSS Rojos",note:"",sys:"CSS",formula:[{ink:"WS",p:42,pct:42.0},{ink:"R",p:28,pct:28.0},{ink:"Y",p:14,pct:14.0},{ink:"TR",p:12,pct:12.0},{ink:"WW",p:4,pct:4.0}]},
+{id:"CSS Tomato",hex:"#ff6347",family:"CSS Naranjas",note:"",sys:"CSS",formula:[{ink:"WS",p:52,pct:52.0},{ink:"R",p:32,pct:32.0},{ink:"Y",p:10,pct:10.0},{ink:"TR",p:6,pct:6.0}]},
+{id:"CSS OrangeRed",hex:"#ff4500",family:"CSS Naranjas",note:"",sys:"CSS",formula:[{ink:"WS",p:60,pct:60.0},{ink:"R",p:30,pct:30.0},{ink:"Y",p:8,pct:8.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"CSS Orange",hex:"#ffa500",family:"CSS Naranjas",note:"",sys:"CSS",formula:[{ink:"WS",p:54,pct:54.0},{ink:"Y",p:38,pct:38.0},{ink:"TR",p:6,pct:6.0},{ink:"R",p:2,pct:2.0}]},
+{id:"CSS DarkOrange",hex:"#ff8c00",family:"CSS Naranjas",note:"",sys:"CSS",formula:[{ink:"WS",p:58,pct:58.0},{ink:"Y",p:34,pct:34.0},{ink:"TR",p:6,pct:6.0},{ink:"R",p:2,pct:2.0}]},
+{id:"CSS Coral",hex:"#ff7f50",family:"CSS Naranjas",note:"",sys:"CSS",formula:[{ink:"WS",p:50,pct:50.0},{ink:"R",p:26,pct:26.0},{ink:"Y",p:14,pct:14.0},{ink:"TR",p:8,pct:8.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"CSS Gold",hex:"#ffd700",family:"CSS Amarillos",note:"",sys:"CSS",formula:[{ink:"Y",p:78,pct:78.0},{ink:"WS",p:16,pct:16.0},{ink:"TR",p:4,pct:4.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"CSS Yellow",hex:"#ffff00",family:"CSS Amarillos",note:"",sys:"CSS",formula:[{ink:"Y",p:96,pct:96.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"CSS LightYellow",hex:"#ffffe0",family:"CSS Amarillos",note:"",sys:"CSS",formula:[{ink:"WW",p:68,pct:68.0},{ink:"Y",p:22,pct:22.0},{ink:"TR",p:10,pct:10.0}]},
+{id:"CSS Khaki",hex:"#f0e68c",family:"CSS Amarillos",note:"",sys:"CSS",formula:[{ink:"Y",p:52,pct:52.0},{ink:"TR",p:30,pct:30.0},{ink:"WS",p:10,pct:10.0},{ink:"WW",p:6,pct:6.0},{ink:"G",p:2,pct:2.0}]},
+{id:"CSS DarkKhaki",hex:"#bdb76b",family:"CSS Amarillos",note:"",sys:"CSS",formula:[{ink:"Y",p:44,pct:44.0},{ink:"G",p:18,pct:18.0},{ink:"BK",p:18,pct:18.0},{ink:"TR",p:14,pct:14.0},{ink:"WS",p:6,pct:6.0}]},
+{id:"CSS GreenYellow",hex:"#adff2f",family:"CSS Verdes",note:"",sys:"CSS",formula:[{ink:"Y",p:62,pct:62.0},{ink:"G",p:30,pct:30.0},{ink:"TR",p:6,pct:6.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"CSS YellowGreen",hex:"#9acd32",family:"CSS Verdes",note:"",sys:"CSS",formula:[{ink:"Y",p:52,pct:52.0},{ink:"G",p:36,pct:36.0},{ink:"BK",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"CSS Chartreuse",hex:"#7fff00",family:"CSS Verdes",note:"",sys:"CSS",formula:[{ink:"Y",p:56,pct:56.0},{ink:"G",p:38,pct:38.0},{ink:"TR",p:4,pct:4.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"CSS LawnGreen",hex:"#7cfc00",family:"CSS Verdes",note:"",sys:"CSS",formula:[{ink:"Y",p:54,pct:54.0},{ink:"G",p:40,pct:40.0},{ink:"TR",p:4,pct:4.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"CSS Lime",hex:"#00ff00",family:"CSS Verdes",note:"",sys:"CSS",formula:[{ink:"G",p:80,pct:80.0},{ink:"Y",p:16,pct:16.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"CSS LimeGreen",hex:"#32cd32",family:"CSS Verdes",note:"",sys:"CSS",formula:[{ink:"G",p:64,pct:64.0},{ink:"Y",p:24,pct:24.0},{ink:"TR",p:8,pct:8.0},{ink:"BK",p:4,pct:4.0}]},
+{id:"CSS PaleGreen",hex:"#98fb98",family:"CSS Verdes",note:"",sys:"CSS",formula:[{ink:"G",p:32,pct:32.0},{ink:"TR",p:44,pct:44.0},{ink:"Y",p:16,pct:16.0},{ink:"WW",p:8,pct:8.0}]},
+{id:"CSS LightGreen",hex:"#90ee90",family:"CSS Verdes",note:"",sys:"CSS",formula:[{ink:"G",p:34,pct:34.0},{ink:"TR",p:42,pct:42.0},{ink:"Y",p:16,pct:16.0},{ink:"WW",p:8,pct:8.0}]},
+{id:"CSS MediumSpringGreen",hex:"#00fa9a",family:"CSS Verdes",note:"",sys:"CSS",formula:[{ink:"G",p:60,pct:60.0},{ink:"Y",p:16,pct:16.0},{ink:"B",p:14,pct:14.0},{ink:"TR",p:8,pct:8.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"CSS SpringGreen",hex:"#00ff7f",family:"CSS Verdes",note:"",sys:"CSS",formula:[{ink:"G",p:66,pct:66.0},{ink:"Y",p:18,pct:18.0},{ink:"B",p:10,pct:10.0},{ink:"TR",p:4,pct:4.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"CSS SeaGreen",hex:"#2e8b57",family:"CSS Verdes",note:"",sys:"CSS",formula:[{ink:"G",p:62,pct:62.0},{ink:"BK",p:20,pct:20.0},{ink:"B",p:8,pct:8.0},{ink:"Y",p:6,pct:6.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"CSS MediumSeaGreen",hex:"#3cb371",family:"CSS Verdes",note:"",sys:"CSS",formula:[{ink:"G",p:60,pct:60.0},{ink:"Y",p:18,pct:18.0},{ink:"BK",p:14,pct:14.0},{ink:"TR",p:6,pct:6.0},{ink:"B",p:2,pct:2.0}]},
+{id:"CSS ForestGreen",hex:"#228b22",family:"CSS Verdes",note:"",sys:"CSS",formula:[{ink:"G",p:64,pct:64.0},{ink:"BK",p:22,pct:22.0},{ink:"Y",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0},{ink:"B",p:2,pct:2.0}]},
+{id:"CSS DarkGreen",hex:"#006400",family:"CSS Verdes",note:"",sys:"CSS",formula:[{ink:"G",p:68,pct:68.0},{ink:"BK",p:24,pct:24.0},{ink:"Y",p:6,pct:6.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"CSS Olive",hex:"#808000",family:"CSS Verdes",note:"",sys:"CSS",formula:[{ink:"Y",p:58,pct:58.0},{ink:"G",p:18,pct:18.0},{ink:"BK",p:20,pct:20.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"CSS OliveDrab",hex:"#6b8e23",family:"CSS Verdes",note:"",sys:"CSS",formula:[{ink:"G",p:50,pct:50.0},{ink:"Y",p:26,pct:26.0},{ink:"BK",p:18,pct:18.0},{ink:"TR",p:4,pct:4.0},{ink:"B",p:2,pct:2.0}]},
+{id:"CSS DarkOliveGreen",hex:"#556b2f",family:"CSS Verdes",note:"",sys:"CSS",formula:[{ink:"G",p:46,pct:46.0},{ink:"Y",p:22,pct:22.0},{ink:"BK",p:24,pct:24.0},{ink:"TR",p:4,pct:4.0},{ink:"B",p:4,pct:4.0}]},
+{id:"CSS Teal",hex:"#008080",family:"CSS Cianes",note:"",sys:"CSS",formula:[{ink:"G",p:52,pct:52.0},{ink:"B",p:26,pct:26.0},{ink:"BK",p:14,pct:14.0},{ink:"TR",p:4,pct:4.0},{ink:"RF",p:4,pct:4.0}]},
+{id:"CSS DarkCyan",hex:"#008b8b",family:"CSS Cianes",note:"",sys:"CSS",formula:[{ink:"G",p:54,pct:54.0},{ink:"B",p:24,pct:24.0},{ink:"BK",p:14,pct:14.0},{ink:"TR",p:4,pct:4.0},{ink:"RF",p:4,pct:4.0}]},
+{id:"CSS Cyan",hex:"#00ffff",family:"CSS Cianes",note:"",sys:"CSS",formula:[{ink:"G",p:52,pct:52.0},{ink:"B",p:36,pct:36.0},{ink:"TR",p:12,pct:12.0}]},
+{id:"CSS Aqua",hex:"#00ffff",family:"CSS Cianes",note:"",sys:"CSS",formula:[{ink:"G",p:52,pct:52.0},{ink:"B",p:36,pct:36.0},{ink:"TR",p:12,pct:12.0}]},
+{id:"CSS LightCyan",hex:"#e0ffff",family:"CSS Cianes",note:"",sys:"CSS",formula:[{ink:"G",p:22,pct:22.0},{ink:"TR",p:54,pct:54.0},{ink:"B",p:16,pct:16.0},{ink:"WW",p:8,pct:8.0}]},
+{id:"CSS Turquoise",hex:"#40e0d0",family:"CSS Cianes",note:"",sys:"CSS",formula:[{ink:"G",p:52,pct:52.0},{ink:"B",p:22,pct:22.0},{ink:"TR",p:18,pct:18.0},{ink:"BK",p:4,pct:4.0},{ink:"RF",p:4,pct:4.0}]},
+{id:"CSS MediumTurquoise",hex:"#48d1cc",family:"CSS Cianes",note:"",sys:"CSS",formula:[{ink:"G",p:50,pct:50.0},{ink:"B",p:24,pct:24.0},{ink:"TR",p:16,pct:16.0},{ink:"BK",p:6,pct:6.0},{ink:"RF",p:4,pct:4.0}]},
+{id:"CSS DarkTurquoise",hex:"#00ced1",family:"CSS Cianes",note:"",sys:"CSS",formula:[{ink:"G",p:56,pct:56.0},{ink:"B",p:24,pct:24.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:6,pct:6.0},{ink:"RF",p:4,pct:4.0}]},
+{id:"CSS CadetBlue",hex:"#5f9ea0",family:"CSS Azules",note:"",sys:"CSS",formula:[{ink:"G",p:46,pct:46.0},{ink:"B",p:20,pct:20.0},{ink:"RF",p:14,pct:14.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:10,pct:10.0}]},
+{id:"CSS SteelBlue",hex:"#4682b4",family:"CSS Azules",note:"",sys:"CSS",formula:[{ink:"RF",p:44,pct:44.0},{ink:"B",p:26,pct:26.0},{ink:"G",p:14,pct:14.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:6,pct:6.0}]},
+{id:"CSS LightSteelBlue",hex:"#b0c4de",family:"CSS Azules",note:"",sys:"CSS",formula:[{ink:"RF",p:28,pct:28.0},{ink:"B",p:18,pct:18.0},{ink:"TR",p:36,pct:36.0},{ink:"G",p:10,pct:10.0},{ink:"WW",p:8,pct:8.0}]},
+{id:"CSS CornflowerBlue",hex:"#6495ed",family:"CSS Azules",note:"",sys:"CSS",formula:[{ink:"RF",p:38,pct:38.0},{ink:"B",p:24,pct:24.0},{ink:"G",p:18,pct:18.0},{ink:"TR",p:14,pct:14.0},{ink:"WW",p:6,pct:6.0}]},
+{id:"CSS RoyalBlue",hex:"#4169e1",family:"CSS Azules",note:"",sys:"CSS",formula:[{ink:"RF",p:50,pct:50.0},{ink:"B",p:28,pct:28.0},{ink:"V",p:12,pct:12.0},{ink:"TR",p:8,pct:8.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"CSS Blue",hex:"#0000ff",family:"CSS Azules",note:"",sys:"CSS",formula:[{ink:"B",p:84,pct:84.0},{ink:"RF",p:10,pct:10.0},{ink:"V",p:4,pct:4.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"CSS MediumBlue",hex:"#0000cd",family:"CSS Azules",note:"",sys:"CSS",formula:[{ink:"B",p:80,pct:80.0},{ink:"RF",p:12,pct:12.0},{ink:"V",p:6,pct:6.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"CSS DarkBlue",hex:"#00008b",family:"CSS Azules",note:"",sys:"CSS",formula:[{ink:"B",p:72,pct:72.0},{ink:"RF",p:14,pct:14.0},{ink:"V",p:8,pct:8.0},{ink:"BK",p:6,pct:6.0}]},
+{id:"CSS Navy",hex:"#000080",family:"CSS Azules",note:"",sys:"CSS",formula:[{ink:"B",p:68,pct:68.0},{ink:"RF",p:14,pct:14.0},{ink:"V",p:8,pct:8.0},{ink:"BK",p:10,pct:10.0}]},
+{id:"CSS MidnightBlue",hex:"#191970",family:"CSS Azules",note:"",sys:"CSS",formula:[{ink:"B",p:60,pct:60.0},{ink:"RF",p:18,pct:18.0},{ink:"V",p:10,pct:10.0},{ink:"BK",p:12,pct:12.0}]},
+{id:"CSS SlateBlue",hex:"#6a5acd",family:"CSS Violetas",note:"",sys:"CSS",formula:[{ink:"B",p:36,pct:36.0},{ink:"V",p:36,pct:36.0},{ink:"RF",p:16,pct:16.0},{ink:"TR",p:8,pct:8.0},{ink:"BK",p:4,pct:4.0}]},
+{id:"CSS DarkSlateBlue",hex:"#483d8b",family:"CSS Violetas",note:"",sys:"CSS",formula:[{ink:"B",p:32,pct:32.0},{ink:"V",p:40,pct:40.0},{ink:"RF",p:14,pct:14.0},{ink:"BK",p:12,pct:12.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"CSS MediumSlateBlue",hex:"#7b68ee",family:"CSS Violetas",note:"",sys:"CSS",formula:[{ink:"B",p:34,pct:34.0},{ink:"V",p:38,pct:38.0},{ink:"RF",p:16,pct:16.0},{ink:"TR",p:10,pct:10.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"CSS Indigo",hex:"#4b0082",family:"CSS Violetas",note:"",sys:"CSS",formula:[{ink:"V",p:52,pct:52.0},{ink:"B",p:24,pct:24.0},{ink:"BK",p:16,pct:16.0},{ink:"RR",p:6,pct:6.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"CSS Purple",hex:"#800080",family:"CSS Violetas",note:"",sys:"CSS",formula:[{ink:"V",p:58,pct:58.0},{ink:"RR",p:20,pct:20.0},{ink:"BK",p:14,pct:14.0},{ink:"B",p:6,pct:6.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"CSS DarkMagenta",hex:"#8b008b",family:"CSS Violetas",note:"",sys:"CSS",formula:[{ink:"V",p:56,pct:56.0},{ink:"RR",p:22,pct:22.0},{ink:"BK",p:14,pct:14.0},{ink:"B",p:6,pct:6.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"CSS DarkViolet",hex:"#9400d3",family:"CSS Violetas",note:"",sys:"CSS",formula:[{ink:"V",p:60,pct:60.0},{ink:"B",p:20,pct:20.0},{ink:"BK",p:10,pct:10.0},{ink:"RR",p:8,pct:8.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"CSS BlueViolet",hex:"#8a2be2",family:"CSS Violetas",note:"",sys:"CSS",formula:[{ink:"V",p:56,pct:56.0},{ink:"B",p:26,pct:26.0},{ink:"RR",p:10,pct:10.0},{ink:"BK",p:6,pct:6.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"CSS MediumOrchid",hex:"#ba55d3",family:"CSS Violetas",note:"",sys:"CSS",formula:[{ink:"V",p:50,pct:50.0},{ink:"RR",p:22,pct:22.0},{ink:"TR",p:18,pct:18.0},{ink:"B",p:6,pct:6.0},{ink:"WW",p:4,pct:4.0}]},
+{id:"CSS Orchid",hex:"#da70d6",family:"CSS Violetas",note:"",sys:"CSS",formula:[{ink:"V",p:42,pct:42.0},{ink:"RR",p:26,pct:26.0},{ink:"TR",p:20,pct:20.0},{ink:"B",p:4,pct:4.0},{ink:"WW",p:8,pct:8.0}]},
+{id:"CSS Violet",hex:"#ee82ee",family:"CSS Violetas",note:"",sys:"CSS",formula:[{ink:"V",p:34,pct:34.0},{ink:"RR",p:22,pct:22.0},{ink:"TR",p:28,pct:28.0},{ink:"WW",p:12,pct:12.0},{ink:"B",p:4,pct:4.0}]},
+{id:"CSS Plum",hex:"#dda0dd",family:"CSS Violetas",note:"",sys:"CSS",formula:[{ink:"V",p:30,pct:30.0},{ink:"RR",p:22,pct:22.0},{ink:"TR",p:32,pct:32.0},{ink:"WW",p:12,pct:12.0},{ink:"B",p:4,pct:4.0}]},
+{id:"CSS Thistle",hex:"#d8bfd8",family:"CSS Violetas",note:"",sys:"CSS",formula:[{ink:"V",p:24,pct:24.0},{ink:"RR",p:18,pct:18.0},{ink:"TR",p:38,pct:38.0},{ink:"WW",p:16,pct:16.0},{ink:"B",p:4,pct:4.0}]},
+{id:"CSS Lavender",hex:"#e6e6fa",family:"CSS Violetas",note:"",sys:"CSS",formula:[{ink:"WW",p:72,pct:72.0},{ink:"V",p:12,pct:12.0},{ink:"TR",p:10,pct:10.0},{ink:"RF",p:4,pct:4.0},{ink:"B",p:2,pct:2.0}]},
+{id:"CSS MediumPurple",hex:"#9370db",family:"CSS Violetas",note:"",sys:"CSS",formula:[{ink:"V",p:52,pct:52.0},{ink:"B",p:22,pct:22.0},{ink:"RR",p:14,pct:14.0},{ink:"TR",p:8,pct:8.0},{ink:"BK",p:4,pct:4.0}]},
+{id:"CSS HotPink",hex:"#ff69b4",family:"CSS Rosas",note:"",sys:"CSS",formula:[{ink:"RR",p:48,pct:48.0},{ink:"TR",p:26,pct:26.0},{ink:"R",p:14,pct:14.0},{ink:"WW",p:8,pct:8.0},{ink:"WS",p:4,pct:4.0}]},
+{id:"CSS DeepPink",hex:"#ff1493",family:"CSS Rosas",note:"",sys:"CSS",formula:[{ink:"RR",p:62,pct:62.0},{ink:"TR",p:16,pct:16.0},{ink:"R",p:12,pct:12.0},{ink:"WS",p:6,pct:6.0},{ink:"V",p:4,pct:4.0}]},
+{id:"CSS Pink",hex:"#ffc0cb",family:"CSS Rosas",note:"",sys:"CSS",formula:[{ink:"RR",p:20,pct:20.0},{ink:"TR",p:52,pct:52.0},{ink:"WW",p:20,pct:20.0},{ink:"R",p:6,pct:6.0},{ink:"WS",p:2,pct:2.0}]},
+{id:"CSS LightPink",hex:"#ffb6c1",family:"CSS Rosas",note:"",sys:"CSS",formula:[{ink:"RR",p:18,pct:18.0},{ink:"TR",p:54,pct:54.0},{ink:"WW",p:20,pct:20.0},{ink:"R",p:6,pct:6.0},{ink:"WS",p:2,pct:2.0}]},
+{id:"CSS PaleVioletRed",hex:"#db7093",family:"CSS Rosas",note:"",sys:"CSS",formula:[{ink:"RR",p:42,pct:42.0},{ink:"TR",p:30,pct:30.0},{ink:"R",p:14,pct:14.0},{ink:"WW",p:10,pct:10.0},{ink:"V",p:4,pct:4.0}]},
+{id:"CSS MediumVioletRed",hex:"#c71585",family:"CSS Rosas",note:"",sys:"CSS",formula:[{ink:"RR",p:58,pct:58.0},{ink:"R",p:16,pct:16.0},{ink:"V",p:14,pct:14.0},{ink:"BK",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"CSS Bisque",hex:"#ffe4c4",family:"CSS Neutros",note:"",sys:"CSS",formula:[{ink:"WW",p:62,pct:62.0},{ink:"WS",p:16,pct:16.0},{ink:"Y",p:12,pct:12.0},{ink:"TR",p:8,pct:8.0},{ink:"R",p:2,pct:2.0}]},
+{id:"CSS BlanchedAlmond",hex:"#ffebcd",family:"CSS Neutros",note:"",sys:"CSS",formula:[{ink:"WW",p:66,pct:66.0},{ink:"Y",p:14,pct:14.0},{ink:"WS",p:10,pct:10.0},{ink:"TR",p:8,pct:8.0},{ink:"R",p:2,pct:2.0}]},
+{id:"CSS BurlyWood",hex:"#deb887",family:"CSS Marrones",note:"",sys:"CSS",formula:[{ink:"WS",p:36,pct:36.0},{ink:"Y",p:32,pct:32.0},{ink:"TR",p:18,pct:18.0},{ink:"WW",p:8,pct:8.0},{ink:"BK",p:4,pct:4.0},{ink:"R",p:2,pct:2.0}]},
+{id:"CSS Chocolate",hex:"#d2691e",family:"CSS Marrones",note:"",sys:"CSS",formula:[{ink:"WS",p:52,pct:52.0},{ink:"R",p:26,pct:26.0},{ink:"Y",p:12,pct:12.0},{ink:"BK",p:8,pct:8.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"CSS Cornsilk",hex:"#fff8dc",family:"CSS Neutros",note:"",sys:"CSS",formula:[{ink:"WW",p:72,pct:72.0},{ink:"Y",p:16,pct:16.0},{ink:"WS",p:6,pct:6.0},{ink:"TR",p:6,pct:6.0}]},
+{id:"CSS DarkGoldenrod",hex:"#b8860b",family:"CSS Amarillos",note:"",sys:"CSS",formula:[{ink:"Y",p:64,pct:64.0},{ink:"WS",p:24,pct:24.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"CSS Goldenrod",hex:"#daa520",family:"CSS Amarillos",note:"",sys:"CSS",formula:[{ink:"Y",p:68,pct:68.0},{ink:"WS",p:20,pct:20.0},{ink:"BK",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"CSS LightGoldenrodYellow",hex:"#fafad2",family:"CSS Amarillos",note:"",sys:"CSS",formula:[{ink:"WW",p:70,pct:70.0},{ink:"Y",p:18,pct:18.0},{ink:"TR",p:10,pct:10.0},{ink:"WS",p:2,pct:2.0}]},
+{id:"CSS Linen",hex:"#faf0e6",family:"CSS Neutros",note:"",sys:"CSS",formula:[{ink:"WW",p:80,pct:80.0},{ink:"WS",p:8,pct:8.0},{ink:"Y",p:6,pct:6.0},{ink:"TR",p:6,pct:6.0}]},
+{id:"CSS Maroon",hex:"#800000",family:"CSS Rojos",note:"",sys:"CSS",formula:[{ink:"R",p:50,pct:50.0},{ink:"RR",p:24,pct:24.0},{ink:"BK",p:22,pct:22.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"CSS Moccasin",hex:"#ffe4b5",family:"CSS Neutros",note:"",sys:"CSS",formula:[{ink:"WW",p:58,pct:58.0},{ink:"WS",p:18,pct:18.0},{ink:"Y",p:14,pct:14.0},{ink:"TR",p:8,pct:8.0},{ink:"R",p:2,pct:2.0}]},
+{id:"CSS NavajoWhite",hex:"#ffdead",family:"CSS Neutros",note:"",sys:"CSS",formula:[{ink:"WW",p:60,pct:60.0},{ink:"WS",p:18,pct:18.0},{ink:"Y",p:12,pct:12.0},{ink:"TR",p:8,pct:8.0},{ink:"R",p:2,pct:2.0}]},
+{id:"CSS OldLace",hex:"#fdf5e6",family:"CSS Neutros",note:"",sys:"CSS",formula:[{ink:"WW",p:82,pct:82.0},{ink:"Y",p:8,pct:8.0},{ink:"WS",p:4,pct:4.0},{ink:"TR",p:6,pct:6.0}]},
+{id:"CSS PapayaWhip",hex:"#ffefd5",family:"CSS Neutros",note:"",sys:"CSS",formula:[{ink:"WW",p:64,pct:64.0},{ink:"WS",p:16,pct:16.0},{ink:"Y",p:10,pct:10.0},{ink:"TR",p:8,pct:8.0},{ink:"R",p:2,pct:2.0}]},
+{id:"CSS Peru",hex:"#cd853f",family:"CSS Marrones",note:"",sys:"CSS",formula:[{ink:"WS",p:46,pct:46.0},{ink:"Y",p:30,pct:30.0},{ink:"BK",p:16,pct:16.0},{ink:"TR",p:6,pct:6.0},{ink:"R",p:2,pct:2.0}]},
+{id:"CSS PowderBlue",hex:"#b0e0e6",family:"CSS Azules",note:"",sys:"CSS",formula:[{ink:"G",p:28,pct:28.0},{ink:"TR",p:44,pct:44.0},{ink:"B",p:14,pct:14.0},{ink:"WW",p:12,pct:12.0},{ink:"RF",p:2,pct:2.0}]},
+{id:"CSS RosyBrown",hex:"#bc8f8f",family:"CSS Marrones",note:"",sys:"CSS",formula:[{ink:"R",p:26,pct:26.0},{ink:"WS",p:24,pct:24.0},{ink:"TR",p:26,pct:26.0},{ink:"WW",p:14,pct:14.0},{ink:"BK",p:8,pct:8.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"CSS SaddleBrown",hex:"#8b4513",family:"CSS Marrones",note:"",sys:"CSS",formula:[{ink:"WS",p:50,pct:50.0},{ink:"R",p:28,pct:28.0},{ink:"Y",p:10,pct:10.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"CSS Sandy",hex:"#f4a460",family:"CSS Marrones",note:"",sys:"CSS",formula:[{ink:"WS",p:44,pct:44.0},{ink:"Y",p:32,pct:32.0},{ink:"TR",p:16,pct:16.0},{ink:"WW",p:6,pct:6.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"CSS Sienna",hex:"#a0522d",family:"CSS Marrones",note:"",sys:"CSS",formula:[{ink:"WS",p:48,pct:48.0},{ink:"R",p:26,pct:26.0},{ink:"Y",p:12,pct:12.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"CSS Silver",hex:"#c0c0c0",family:"CSS Grises",note:"",sys:"CSS",formula:[{ink:"BK",p:12,pct:12.0},{ink:"TR",p:68,pct:68.0},{ink:"RF",p:8,pct:8.0},{ink:"V",p:4,pct:4.0},{ink:"WW",p:6,pct:6.0},{ink:"G",p:2,pct:2.0}]},
+{id:"CSS Snow",hex:"#fffafa",family:"CSS Neutros",note:"",sys:"CSS",formula:[{ink:"WW",p:92,pct:92.0},{ink:"RR",p:4,pct:4.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"CSS Tan",hex:"#d2b48c",family:"CSS Marrones",note:"",sys:"CSS",formula:[{ink:"WS",p:30,pct:30.0},{ink:"Y",p:32,pct:32.0},{ink:"TR",p:24,pct:24.0},{ink:"WW",p:10,pct:10.0},{ink:"BK",p:4,pct:4.0}]},
+{id:"CSS Wheat",hex:"#f5deb3",family:"CSS Neutros",note:"",sys:"CSS",formula:[{ink:"WW",p:58,pct:58.0},{ink:"WS",p:18,pct:18.0},{ink:"Y",p:14,pct:14.0},{ink:"TR",p:8,pct:8.0},{ink:"R",p:2,pct:2.0}]},
+{id:"CSS White",hex:"#ffffff",family:"CSS Blancos",note:"Blanco puro",sys:"CSS",formula:[{ink:"WW",p:98,pct:98.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"CSS WhiteSmoke",hex:"#f5f5f5",family:"CSS Blancos",note:"",sys:"CSS",formula:[{ink:"WW",p:90,pct:90.0},{ink:"TR",p:6,pct:6.0},{ink:"BK",p:2,pct:2.0},{ink:"RF",p:1,pct:1.0},{ink:"V",p:1,pct:1.0}]},
+{id:"CSS AntiqueWhite",hex:"#faebd7",family:"CSS Neutros",note:"",sys:"CSS",formula:[{ink:"WW",p:76,pct:76.0},{ink:"WS",p:10,pct:10.0},{ink:"Y",p:8,pct:8.0},{ink:"TR",p:6,pct:6.0}]},
+{id:"CSS Azure",hex:"#f0ffff",family:"CSS Azules",note:"",sys:"CSS",formula:[{ink:"WW",p:76,pct:76.0},{ink:"G",p:10,pct:10.0},{ink:"TR",p:10,pct:10.0},{ink:"B",p:4,pct:4.0}]},
+{id:"CSS DarkGray",hex:"#a9a9a9",family:"CSS Grises",note:"",sys:"CSS",formula:[{ink:"BK",p:20,pct:20.0},{ink:"TR",p:60,pct:60.0},{ink:"RF",p:8,pct:8.0},{ink:"V",p:6,pct:6.0},{ink:"WW",p:4,pct:4.0},{ink:"G",p:2,pct:2.0}]},
+{id:"CSS DimGray",hex:"#696969",family:"CSS Grises",note:"",sys:"CSS",formula:[{ink:"BK",p:46,pct:46.0},{ink:"TR",p:36,pct:36.0},{ink:"RF",p:8,pct:8.0},{ink:"V",p:6,pct:6.0},{ink:"WW",p:2,pct:2.0},{ink:"G",p:2,pct:2.0}]},
+{id:"CSS Gray",hex:"#808080",family:"CSS Grises",note:"",sys:"CSS",formula:[{ink:"BK",p:36,pct:36.0},{ink:"TR",p:46,pct:46.0},{ink:"RF",p:8,pct:8.0},{ink:"V",p:6,pct:6.0},{ink:"WW",p:2,pct:2.0},{ink:"G",p:2,pct:2.0}]},
+{id:"CSS LightGray",hex:"#d3d3d3",family:"CSS Grises",note:"",sys:"CSS",formula:[{ink:"BK",p:10,pct:10.0},{ink:"TR",p:70,pct:70.0},{ink:"RF",p:8,pct:8.0},{ink:"V",p:6,pct:6.0},{ink:"WW",p:4,pct:4.0},{ink:"G",p:2,pct:2.0}]},
+{id:"CSS LightSlateGray",hex:"#778899",family:"CSS Grises",note:"",sys:"CSS",formula:[{ink:"BK",p:28,pct:28.0},{ink:"TR",p:40,pct:40.0},{ink:"RF",p:14,pct:14.0},{ink:"B",p:10,pct:10.0},{ink:"V",p:6,pct:6.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"CSS SlateGray",hex:"#708090",family:"CSS Grises",note:"",sys:"CSS",formula:[{ink:"BK",p:32,pct:32.0},{ink:"TR",p:38,pct:38.0},{ink:"RF",p:14,pct:14.0},{ink:"B",p:10,pct:10.0},{ink:"V",p:4,pct:4.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"CSS Gainsboro",hex:"#dcdcdc",family:"CSS Grises",note:"",sys:"CSS",formula:[{ink:"BK",p:8,pct:8.0},{ink:"TR",p:74,pct:74.0},{ink:"RF",p:8,pct:8.0},{ink:"V",p:6,pct:6.0},{ink:"WW",p:2,pct:2.0},{ink:"G",p:2,pct:2.0}]},
+{id:"CSS MintCream",hex:"#f5fffa",family:"CSS Verdes",note:"",sys:"CSS",formula:[{ink:"WW",p:82,pct:82.0},{ink:"G",p:10,pct:10.0},{ink:"TR",p:8,pct:8.0}]},
+{id:"CSS HoneyDew",hex:"#f0fff0",family:"CSS Verdes",note:"",sys:"CSS",formula:[{ink:"WW",p:80,pct:80.0},{ink:"G",p:12,pct:12.0},{ink:"TR",p:8,pct:8.0}]},
+{id:"CSS Ivory",hex:"#fffff0",family:"CSS Blancos",note:"",sys:"CSS",formula:[{ink:"WW",p:88,pct:88.0},{ink:"Y",p:6,pct:6.0},{ink:"TR",p:6,pct:6.0}]},
+{id:"CSS LavenderBlush",hex:"#fff0f5",family:"CSS Rosas",note:"",sys:"CSS",formula:[{ink:"WW",p:82,pct:82.0},{ink:"RR",p:8,pct:8.0},{ink:"TR",p:8,pct:8.0},{ink:"R",p:2,pct:2.0}]},
+{id:"CSS MistyRose",hex:"#ffe4e1",family:"CSS Rosas",note:"",sys:"CSS",formula:[{ink:"WW",p:74,pct:74.0},{ink:"R",p:10,pct:10.0},{ink:"WS",p:8,pct:8.0},{ink:"TR",p:6,pct:6.0},{ink:"RR",p:2,pct:2.0}]},
+{id:"CSS Seashell",hex:"#fff5ee",family:"CSS Neutros",note:"",sys:"CSS",formula:[{ink:"WW",p:82,pct:82.0},{ink:"WS",p:8,pct:8.0},{ink:"Y",p:4,pct:4.0},{ink:"TR",p:6,pct:6.0}]},
+{id:"NCS S 0500-N",hex:"#f0f0f0",family:"NCS Blancos",note:"Blanco casi puro",sys:"NCS",formula:[{ink:"WW",p:90,pct:90.0},{ink:"BK",p:6,pct:6.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"NCS S 0502-Y",hex:"#f0edd8",family:"NCS Blancos",note:"Blanco amarillento",sys:"NCS",formula:[{ink:"WW",p:84,pct:84.0},{ink:"Y",p:8,pct:8.0},{ink:"WS",p:4,pct:4.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"NCS S 0505-Y20R",hex:"#f0e0c0",family:"NCS Blancos",note:"Blanco cálido",sys:"NCS",formula:[{ink:"WW",p:76,pct:76.0},{ink:"WS",p:12,pct:12.0},{ink:"Y",p:6,pct:6.0},{ink:"TR",p:6,pct:6.0}]},
+{id:"NCS S 1000-N",hex:"#e0e0e0",family:"NCS Grises",note:"Gris muy claro",sys:"NCS",formula:[{ink:"BK",p:12,pct:12.0},{ink:"TR",p:72,pct:72.0},{ink:"RF",p:8,pct:8.0},{ink:"V",p:4,pct:4.0},{ink:"WW",p:4,pct:4.0}]},
+{id:"NCS S 1500-N",hex:"#c8c8c8",family:"NCS Grises",note:"Gris claro",sys:"NCS",formula:[{ink:"BK",p:18,pct:18.0},{ink:"TR",p:64,pct:64.0},{ink:"RF",p:8,pct:8.0},{ink:"V",p:4,pct:4.0},{ink:"WW",p:6,pct:6.0}]},
+{id:"NCS S 2000-N",hex:"#b0b0b0",family:"NCS Grises",note:"Gris medio claro",sys:"NCS",formula:[{ink:"BK",p:24,pct:24.0},{ink:"TR",p:58,pct:58.0},{ink:"RF",p:8,pct:8.0},{ink:"V",p:4,pct:4.0},{ink:"WW",p:6,pct:6.0}]},
+{id:"NCS S 2500-N",hex:"#989898",family:"NCS Grises",note:"Gris medio",sys:"NCS",formula:[{ink:"BK",p:30,pct:30.0},{ink:"TR",p:52,pct:52.0},{ink:"RF",p:8,pct:8.0},{ink:"V",p:4,pct:4.0},{ink:"WW",p:6,pct:6.0}]},
+{id:"NCS S 3000-N",hex:"#808080",family:"NCS Grises",note:"Gris neutral",sys:"NCS",formula:[{ink:"BK",p:36,pct:36.0},{ink:"TR",p:46,pct:46.0},{ink:"RF",p:8,pct:8.0},{ink:"V",p:4,pct:4.0},{ink:"WW",p:6,pct:6.0}]},
+{id:"NCS S 4000-N",hex:"#686868",family:"NCS Grises",note:"Gris oscuro claro",sys:"NCS",formula:[{ink:"BK",p:46,pct:46.0},{ink:"TR",p:38,pct:38.0},{ink:"RF",p:8,pct:8.0},{ink:"V",p:4,pct:4.0},{ink:"WW",p:4,pct:4.0}]},
+{id:"NCS S 5000-N",hex:"#505050",family:"NCS Grises",note:"Gris oscuro",sys:"NCS",formula:[{ink:"BK",p:54,pct:54.0},{ink:"TR",p:30,pct:30.0},{ink:"RF",p:8,pct:8.0},{ink:"V",p:4,pct:4.0},{ink:"WW",p:4,pct:4.0}]},
+{id:"NCS S 6000-N",hex:"#383838",family:"NCS Grises",note:"Gris muy oscuro",sys:"NCS",formula:[{ink:"BK",p:64,pct:64.0},{ink:"TR",p:22,pct:22.0},{ink:"RF",p:8,pct:8.0},{ink:"V",p:4,pct:4.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"NCS S 7000-N",hex:"#202020",family:"NCS Grises",note:"Casi negro",sys:"NCS",formula:[{ink:"BK",p:76,pct:76.0},{ink:"TR",p:14,pct:14.0},{ink:"RF",p:6,pct:6.0},{ink:"V",p:4,pct:4.0}]},
+{id:"NCS S 0530-Y",hex:"#f5d040",family:"NCS Amarillos",note:"Amarillo NCS",sys:"NCS",formula:[{ink:"Y",p:70,pct:70.0},{ink:"WS",p:18,pct:18.0},{ink:"TR",p:10,pct:10.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"NCS S 0540-Y10R",hex:"#f5b030",family:"NCS Amarillos",note:"Amarillo rojizo NCS",sys:"NCS",formula:[{ink:"Y",p:66,pct:66.0},{ink:"WS",p:24,pct:24.0},{ink:"TR",p:8,pct:8.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"NCS S 0550-Y20R",hex:"#f0a020",family:"NCS Naranjas",note:"Naranja amarillo NCS",sys:"NCS",formula:[{ink:"Y",p:62,pct:62.0},{ink:"WS",p:28,pct:28.0},{ink:"TR",p:8,pct:8.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"NCS S 0560-Y30R",hex:"#f08010",family:"NCS Naranjas",note:"Naranja NCS",sys:"NCS",formula:[{ink:"WS",p:58,pct:58.0},{ink:"Y",p:32,pct:32.0},{ink:"TR",p:8,pct:8.0},{ink:"R",p:2,pct:2.0}]},
+{id:"NCS S 0560-Y50R",hex:"#f06000",family:"NCS Naranjas",note:"Naranja cálido NCS",sys:"NCS",formula:[{ink:"WS",p:64,pct:64.0},{ink:"Y",p:28,pct:28.0},{ink:"TR",p:6,pct:6.0},{ink:"R",p:2,pct:2.0}]},
+{id:"NCS S 0560-R",hex:"#f02030",family:"NCS Rojos",note:"Rojo NCS",sys:"NCS",formula:[{ink:"R",p:56,pct:56.0},{ink:"WS",p:28,pct:28.0},{ink:"TR",p:12,pct:12.0},{ink:"Y",p:4,pct:4.0}]},
+{id:"NCS S 1040-R",hex:"#e03050",family:"NCS Rojos",note:"Rojo medio NCS",sys:"NCS",formula:[{ink:"R",p:52,pct:52.0},{ink:"RR",p:28,pct:28.0},{ink:"TR",p:12,pct:12.0},{ink:"WS",p:6,pct:6.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"NCS S 2030-R",hex:"#c02040",family:"NCS Rojos",note:"Rojo oscuro NCS",sys:"NCS",formula:[{ink:"R",p:54,pct:54.0},{ink:"RR",p:28,pct:28.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:6,pct:6.0},{ink:"WS",p:2,pct:2.0}]},
+{id:"NCS S 0560-R50B",hex:"#e020a0",family:"NCS Magentas",note:"Magenta NCS",sys:"NCS",formula:[{ink:"RR",p:60,pct:60.0},{ink:"V",p:20,pct:20.0},{ink:"TR",p:12,pct:12.0},{ink:"R",p:6,pct:6.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"NCS S 0560-R80B",hex:"#8020d0",family:"NCS Violetas",note:"Violeta NCS",sys:"NCS",formula:[{ink:"V",p:58,pct:58.0},{ink:"B",p:22,pct:22.0},{ink:"RR",p:10,pct:10.0},{ink:"TR",p:8,pct:8.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"NCS S 0560-B",hex:"#0050f0",family:"NCS Azules",note:"Azul NCS",sys:"NCS",formula:[{ink:"RF",p:56,pct:56.0},{ink:"B",p:28,pct:28.0},{ink:"TR",p:10,pct:10.0},{ink:"G",p:4,pct:4.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"NCS S 0560-B20G",hex:"#0090c0",family:"NCS Azules",note:"Azul verdoso NCS",sys:"NCS",formula:[{ink:"RF",p:44,pct:44.0},{ink:"G",p:34,pct:34.0},{ink:"B",p:14,pct:14.0},{ink:"TR",p:6,pct:6.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"NCS S 0560-B50G",hex:"#00b0a0",family:"NCS Cianes",note:"Cian NCS",sys:"NCS",formula:[{ink:"G",p:56,pct:56.0},{ink:"B",p:26,pct:26.0},{ink:"RF",p:8,pct:8.0},{ink:"TR",p:8,pct:8.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"NCS S 0560-G",hex:"#00c040",family:"NCS Verdes",note:"Verde NCS",sys:"NCS",formula:[{ink:"G",p:68,pct:68.0},{ink:"Y",p:22,pct:22.0},{ink:"TR",p:8,pct:8.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"NCS S 0560-G50Y",hex:"#80d000",family:"NCS Verdes",note:"Verde amarillo NCS",sys:"NCS",formula:[{ink:"Y",p:58,pct:58.0},{ink:"G",p:34,pct:34.0},{ink:"TR",p:6,pct:6.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"NCS S 0560-Y50G",hex:"#c0d800",family:"NCS Verdes",note:"Amarillo verde NCS",sys:"NCS",formula:[{ink:"Y",p:66,pct:66.0},{ink:"G",p:26,pct:26.0},{ink:"TR",p:6,pct:6.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"Tiffany Blue",hex:"#0abab5",family:"Especiales",note:"Azul Tiffany & Co",sys:"Especial",formula:[{ink:"G",p:54,pct:54.0},{ink:"B",p:22,pct:22.0},{ink:"TR",p:16,pct:16.0},{ink:"RF",p:6,pct:6.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"Coca-Cola Red",hex:"#f40009",family:"Especiales",note:"Rojo Coca-Cola",sys:"Especial",formula:[{ink:"R",p:74,pct:74.0},{ink:"WS",p:16,pct:16.0},{ink:"TR",p:8,pct:8.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"Facebook Blue",hex:"#1877f2",family:"Especiales",note:"Azul Facebook",sys:"Especial",formula:[{ink:"RF",p:52,pct:52.0},{ink:"B",p:28,pct:28.0},{ink:"G",p:12,pct:12.0},{ink:"TR",p:6,pct:6.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"Twitter Blue",hex:"#1da1f2",family:"Especiales",note:"Azul Twitter",sys:"Especial",formula:[{ink:"RF",p:40,pct:40.0},{ink:"G",p:34,pct:34.0},{ink:"B",p:14,pct:14.0},{ink:"TR",p:8,pct:8.0},{ink:"WW",p:4,pct:4.0}]},
+{id:"Instagram Orange",hex:"#e1306c",family:"Especiales",note:"Naranja/Rosa Instagram",sys:"Especial",formula:[{ink:"RR",p:50,pct:50.0},{ink:"R",p:28,pct:28.0},{ink:"WS",p:10,pct:10.0},{ink:"TR",p:8,pct:8.0},{ink:"BK",p:4,pct:4.0}]},
+{id:"Spotify Green",hex:"#1db954",family:"Especiales",note:"Verde Spotify",sys:"Especial",formula:[{ink:"G",p:66,pct:66.0},{ink:"Y",p:22,pct:22.0},{ink:"BK",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"WhatsApp Green",hex:"#25d366",family:"Especiales",note:"Verde WhatsApp",sys:"Especial",formula:[{ink:"G",p:66,pct:66.0},{ink:"Y",p:24,pct:24.0},{ink:"TR",p:8,pct:8.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"YouTube Red",hex:"#ff0000",family:"Especiales",note:"Rojo YouTube",sys:"Especial",formula:[{ink:"R",p:80,pct:80.0},{ink:"WS",p:12,pct:12.0},{ink:"TR",p:6,pct:6.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"Amazon Orange",hex:"#ff9900",family:"Especiales",note:"Naranja Amazon",sys:"Especial",formula:[{ink:"WS",p:50,pct:50.0},{ink:"Y",p:40,pct:40.0},{ink:"TR",p:8,pct:8.0},{ink:"R",p:2,pct:2.0}]},
+{id:"Ferrari Red",hex:"#ff2800",family:"Especiales",note:"Rojo Ferrari",sys:"Especial",formula:[{ink:"R",p:76,pct:76.0},{ink:"WS",p:14,pct:14.0},{ink:"TR",p:8,pct:8.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"Lamborghini Yellow",hex:"#d4af37",family:"Especiales",note:"Amarillo Lamborghini",sys:"Especial",formula:[{ink:"Y",p:68,pct:68.0},{ink:"WS",p:18,pct:18.0},{ink:"BK",p:8,pct:8.0},{ink:"TR",p:6,pct:6.0}]},
+{id:"Hermès Orange",hex:"#ff6600",family:"Especiales",note:"Naranja Hermès",sys:"Especial",formula:[{ink:"WS",p:60,pct:60.0},{ink:"Y",p:30,pct:30.0},{ink:"TR",p:8,pct:8.0},{ink:"R",p:2,pct:2.0}]},
+{id:"Yves Klein Blue",hex:"#002fa7",family:"Especiales",note:"Azul IKB Klein",sys:"Especial",formula:[{ink:"RF",p:58,pct:58.0},{ink:"B",p:28,pct:28.0},{ink:"V",p:8,pct:8.0},{ink:"BK",p:4,pct:4.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"Majorelle Blue",hex:"#6050dc",family:"Especiales",note:"Azul Majorelle",sys:"Especial",formula:[{ink:"B",p:38,pct:38.0},{ink:"V",p:36,pct:36.0},{ink:"RF",p:16,pct:16.0},{ink:"TR",p:8,pct:8.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"Midnight Blue",hex:"#702963",family:"Especiales",note:"Azul medianoche",sys:"Especial",formula:[{ink:"V",p:40,pct:40.0},{ink:"RR",p:28,pct:28.0},{ink:"BK",p:22,pct:22.0},{ink:"B",p:8,pct:8.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"Rose Gold",hex:"#b76e79",family:"Especiales",note:"Oro rosa",sys:"Especial",formula:[{ink:"RR",p:28,pct:28.0},{ink:"WS",p:26,pct:26.0},{ink:"TR",p:24,pct:24.0},{ink:"WW",p:14,pct:14.0},{ink:"BK",p:6,pct:6.0},{ink:"R",p:2,pct:2.0}]},
+{id:"Millennial Pink",hex:"#f3d0d7",family:"Especiales",note:"Rosa millennial",sys:"Especial",formula:[{ink:"WW",p:68,pct:68.0},{ink:"RR",p:16,pct:16.0},{ink:"TR",p:12,pct:12.0},{ink:"R",p:4,pct:4.0}]},
+{id:"Gen-Z Yellow",hex:"#fde74c",family:"Especiales",note:"Amarillo Gen-Z",sys:"Especial",formula:[{ink:"Y",p:72,pct:72.0},{ink:"WS",p:14,pct:14.0},{ink:"TR",p:12,pct:12.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"Electric Blue",hex:"#0000ff",family:"Especiales",note:"Azul eléctrico",sys:"Especial",formula:[{ink:"B",p:84,pct:84.0},{ink:"RF",p:10,pct:10.0},{ink:"V",p:4,pct:4.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"Neon Green",hex:"#39ff14",family:"Especiales",note:"Verde neón",sys:"Especial",formula:[{ink:"G",p:76,pct:76.0},{ink:"Y",p:18,pct:18.0},{ink:"TR",p:6,pct:6.0}]},
+{id:"Hot Magenta",hex:"#ff00af",family:"Especiales",note:"Magenta caliente",sys:"Especial",formula:[{ink:"RR",p:70,pct:70.0},{ink:"TR",p:14,pct:14.0},{ink:"V",p:8,pct:8.0},{ink:"R",p:6,pct:6.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"Pantone 2024 Peach Fuzz",hex:"#ffbe98",family:"Especiales",note:"Color del Año 2024",sys:"Pantone",formula:[{ink:"WS",p:36,pct:36.0},{ink:"Y",p:28,pct:28.0},{ink:"TR",p:26,pct:26.0},{ink:"WW",p:8,pct:8.0},{ink:"R",p:2,pct:2.0}]},
+{id:"Pantone 2022 Very Peri",hex:"#6667ab",family:"Especiales",note:"Color del Año 2022",sys:"Pantone",formula:[{ink:"B",p:34,pct:34.0},{ink:"V",p:34,pct:34.0},{ink:"RF",p:16,pct:16.0},{ink:"TR",p:10,pct:10.0},{ink:"RR",p:4,pct:4.0},{ink:"BK",p:2,pct:2.0}]},
+{id:"Pantone 2021 Ultimate Gray",hex:"#939597",family:"Especiales",note:"Color del Año 2021 (Gris)",sys:"Pantone",formula:[{ink:"BK",p:22,pct:22.0},{ink:"TR",p:56,pct:56.0},{ink:"RF",p:10,pct:10.0},{ink:"V",p:6,pct:6.0},{ink:"WW",p:4,pct:4.0},{ink:"G",p:2,pct:2.0}]},
+{id:"Pantone 2021 Illuminating",hex:"#f5df4d",family:"Especiales",note:"Color del Año 2021 (Amarillo)",sys:"Pantone",formula:[{ink:"Y",p:74,pct:74.0},{ink:"WS",p:14,pct:14.0},{ink:"TR",p:10,pct:10.0},{ink:"WW",p:2,pct:2.0}]},
+{id:"Pantone 2020 Classic Blue",hex:"#0f4c81",family:"Especiales",note:"Color del Año 2020",sys:"Pantone",formula:[{ink:"RF",p:54,pct:54.0},{ink:"B",p:26,pct:26.0},{ink:"BK",p:12,pct:12.0},{ink:"G",p:6,pct:6.0},{ink:"TR",p:2,pct:2.0}]},
+{id:"Pantone 2019 Living Coral",hex:"#ff6b6b",family:"Especiales",note:"Color del Año 2019",sys:"Pantone",formula:[{ink:"WS",p:44,pct:44.0},{ink:"R",p:28,pct:28.0},{ink:"Y",p:14,pct:14.0},{ink:"TR",p:10,pct:10.0},{ink:"WW",p:4,pct:4.0}]},
+{id:"Pantone 2018 Ultra Violet",hex:"#5f4b8b",family:"Especiales",note:"Color del Año 2018",sys:"Pantone",formula:[{ink:"V",p:58,pct:58.0},{ink:"B",p:18,pct:18.0},{ink:"RR",p:12,pct:12.0},{ink:"BK",p:8,pct:8.0},{ink:"TR",p:4,pct:4.0}]},
+{id:"Pantone 2017 Greenery",hex:"#88b04b",family:"Especiales",note:"Color del Año 2017",sys:"Pantone",formula:[{ink:"G",p:50,pct:50.0},{ink:"Y",p:34,pct:34.0},{ink:"BK",p:10,pct:10.0},{ink:"TR",p:6,pct:6.0}]},
+{id:"Pantone 2016 Rose Quartz",hex:"#f7cac9",family:"Especiales",note:"Color del Año 2016A",sys:"Pantone",formula:[{ink:"WW",p:70,pct:70.0},{ink:"RR",p:14,pct:14.0},{ink:"TR",p:12,pct:12.0},{ink:"R",p:4,pct:4.0}]},
+{id:"Pantone 2016 Serenity",hex:"#92a8d1",family:"Especiales",note:"Color del Año 2016B",sys:"Pantone",formula:[{ink:"RF",p:34,pct:34.0},{ink:"B",p:22,pct:22.0},{ink:"TR",p:26,pct:26.0},{ink:"WW",p:12,pct:12.0},{ink:"G",p:6,pct:6.0}]},
+{id:"Pantone 2015 Marsala",hex:"#955251",family:"Especiales",note:"Color del Año 2015",sys:"Pantone",formula:[{ink:"R",p:44,pct:44.0},{ink:"WS",p:26,pct:26.0},{ink:"RR",p:12,pct:12.0},{ink:"BK",p:12,pct:12.0},{ink:"TR",p:4,pct:4.0},{ink:"Y",p:2,pct:2.0}]},
+{id:"Pantone 2014 Radiant Orchid",hex:"#b163a3",family:"Especiales",note:"Color del Año 2014",sys:"Pantone",formula:[{ink:"V",p:50,pct:50.0},{ink:"RR",p:24,pct:24.0},{ink:"TR",p:16,pct:16.0},{ink:"B",p:6,pct:6.0},{ink:"WW",p:4,pct:4.0}]},
+{id:"Pantone 2013 Emerald",hex:"#009b77",family:"Especiales",note:"Color del Año 2013",sys:"Pantone",formula:[{ink:"G",p:64,pct:64.0},{ink:"B",p:14,pct:14.0},{ink:"BK",p:12,pct:12.0},{ink:"Y",p:6,pct:6.0},{ink:"TR",p:4,pct:4.0}]}
+];
+// UTILS
+function h2r(h){return{r:parseInt(h.slice(1,3),16),g:parseInt(h.slice(3,5),16),b:parseInt(h.slice(5,7),16)};}
+function r2h(r,g,b){return'#'+[r,g,b].map(v=>v.toString(16).padStart(2,'0')).join('');}
+function lab(r,g,b){
+  let R=r/255,G=g/255,B2=b/255;
+  R=R>0.04045?Math.pow((R+0.055)/1.055,2.4):R/12.92;
+  G=G>0.04045?Math.pow((G+0.055)/1.055,2.4):G/12.92;
+  B2=B2>0.04045?Math.pow((B2+0.055)/1.055,2.4):B2/12.92;
+  const X=(R*0.4124+G*0.3576+B2*0.1805)/0.95047,Y2=(R*0.2126+G*0.7152+B2*0.0722),Z=(R*0.0193+G*0.1192+B2*0.9505)/1.08883;
+  const f=t=>t>0.008856?Math.pow(t,1/3):7.787*t+16/116;
+  const fx=f(X),fy=f(Y2),fz=f(Z);
+  return{L:116*fy-16,a:500*(fx-fy),b:200*(fy-fz)};
+}
+function dE(h1,h2){const c1=h2r(h1),c2=h2r(h2),l1=lab(c1.r,c1.g,c1.b),l2=lab(c2.r,c2.g,c2.b);return Math.sqrt((l1.L-l2.L)**2+(l1.a-l2.a)**2+(l1.b-l2.b)**2);}
+function cmyk(r,g,b){r/=255;g/=255;b/=255;const k=1-Math.max(r,g,b);if(k===1)return{c:0,m:0,y:0,k:100};return{c:Math.round((1-r-k)/(1-k)*100),m:Math.round((1-g-k)/(1-k)*100),y:Math.round((1-b-k)/(1-k)*100),k:Math.round(k*100)};}
+function lum(h){const{r,g,b}=h2r(h);return 0.299*r+0.587*g+0.114*b;}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2200);}
+function copy(t){navigator.clipboard.writeText(t).then(()=>toast('✓ '+t));}
+// NAV
+function SP(id,el){
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.getElementById(id).classList.add('on');el.classList.add('on');
+}
+// FILTROS
+const systems=['Todos',...new Set(PANTONE_DB.map(c=>c.sys))];
+const families=['Todas',...new Set(PANTONE_DB.map(c=>c.family))];
+let curSys='Todos',curFam='Todas',selColor=null;
+function renderSys(){
+  document.getElementById('sysF').innerHTML=systems.map(s=>{
+    const col=SYS_COLORS[s]||'var(--ac)';
+    return`<button class="sb-btn${s===curSys?' on':''}" style="${s===curSys?'background:'+col+';color:#000;border-color:'+col:''}" onclick="setSys('${s.replace("'","\\'")}')">${s}</button>`;
+  }).join('');
+}
+function setSys(s){curSys=s;renderSys();renderList();}
+function renderFam(){
+  const avail=PANTONE_DB.filter(c=>curSys==='Todos'||c.sys===curSys).map(c=>c.family);
+  const uFams=['Todas',...new Set(avail)];
+  document.getElementById('famF').innerHTML=uFams.map(f=>`<button class="sb-btn${f===curFam?' on':''}" onclick="setFam('${f.replace("'","\\'")}')">${f.replace('RAL ','').replace('CSS ','').replace('NCS ','')}</button>`).join('');
+}
+function setFam(f){curFam=f;renderFam();renderList();}
+function renderList(){
+  renderFam();
+  const q=document.getElementById('srch').value.toLowerCase();
+  const fl=PANTONE_DB.filter(c=>
+    (curSys==='Todos'||c.sys===curSys)&&
+    (curFam==='Todas'||c.family===curFam)&&
+    (c.id.toLowerCase().includes(q)||c.family.toLowerCase().includes(q)||c.sys.toLowerCase().includes(q))
+  );
+  document.getElementById('cnt').textContent=fl.length+' colores';
+  const sc=SYS_COLORS;
+  document.getElementById('cl').innerHTML=fl.map(c=>`
+    <div class="ci${selColor?.id===c.id?' on':''}" onclick="SC('${c.id.replace(/'/g,"\\'").replace(/"/g,'\\"')}')">
+      <div class="sw" style="background:${c.hex}"></div>
+      <div class="cif">
+        <div class="cn">${c.id}</div>
+        <span class="cs" style="background:${sc[c.sys]||'var(--ac)'}20;color:${sc[c.sys]||'var(--ac)'};border:1px solid ${sc[c.sys]||'var(--ac)'}40">${c.sys}</span>
+      </div>
+    </div>`).join('');
+}
+function SC(id){
+  selColor=PANTONE_DB.find(c=>c.id===id);
+  if(!selColor)return;
+  renderList();RD();
+  document.getElementById('wb').style.display='none';
+  document.getElementById('dp').classList.add('on');
+}
+function RD(){
+  const c=selColor;
+  const{r,g,b}=h2r(c.hex);
+  const cm=cmyk(r,g,b);
+  const tc=lum(c.hex)>128?'#000':'#fff';
+  const related=PANTONE_DB.filter(p=>p.family===c.family&&p.id!==c.id).slice(0,10);
+  const sc=SYS_COLORS[c.sys]||'var(--ac)';
+  const fh=c.formula.map(fi=>`<div class="ir">
+    <div class="id" style="background:${IC[fi.ink]||'#888'}"></div>
+    <div class="in">Base <strong>${fi.ink}</strong></div>
+    <div class="ib"><div class="ibf" style="width:${fi.pct}%;background:${IC[fi.ink]||'#888'}"></div></div>
+    <div class="ip">${fi.p} pts</div>
+    <div class="ipc">${fi.pct}%</div>
+  </div>`).join('');
+  const rh=related.map(p=>`<div class="ri" onclick="SC('${p.id.replace(/'/g,"\\'").replace(/"/g,'\\"')}')"><div class="rsw" style="background:${p.hex}"></div><div class="rn">${p.id}</div></div>`).join('');
+  document.getElementById('dp').innerHTML=`
+    <div class="ch">
+      <div class="hs" style="background:${c.hex};display:flex;align-items:flex-end;padding:6px">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:8px;color:${tc};opacity:.7">${c.id}</span>
+      </div>
+      <div>
+        <div class="pb">Sistema: <span style="color:${sc}">${c.sys}</span></div>
+        <div class="pn">${c.id}</div>
+        <div class="pf">${c.family}${c.note?' · '+c.note:''}</div>
+        <div class="hr">
+          <div class="ht" onclick="copy('${c.hex}')">${c.hex.toUpperCase()}</div>
+          <div class="ht" onclick="copy('rgb(${r},${g},${b})')">RGB ${r},${g},${b}</div>
+        </div>
+      </div>
+    </div>
+    <div class="sec">Valores cromáticos</div>
+    <div class="vg">
+      <div class="vb"><div class="vl">HEX</div><div class="vv" style="color:${c.hex}">${c.hex.toUpperCase()}</div></div>
+      <div class="vb"><div class="vl">RGB</div><div class="vv">${r}/${g}/${b}</div></div>
+      <div class="vb"><div class="vl">CMYK</div><div class="vv">${cm.c} ${cm.m} ${cm.y} ${cm.k}</div></div>
+    </div>
+    <div class="sec">Fórmula de mezcla flexo</div>
+    <div class="fc">
+      <div class="fl">Tintas base (100 partes)</div>
+      ${fh}
+      ${c.note?`<div class="fn">💡 ${c.note}</div>`:''}
+    </div>
+    <div class="sec">Calculadora de peso</div>
+    <div class="cbx">
+      <div class="ct">⚖️ Cantidad de tinta a preparar</div>
+      <div class="cr"><label>Cantidad total</label><input type="number" id="cg" value="500" min="1" oninput="CM()"><select id="cu" onchange="CM()"><option>g</option><option>kg</option><option>lb</option></select></div>
+      <div class="cres" id="cres"></div>
+    </div>
+    <div class="sec">Leyenda tintas base</div>
+    <div class="fc" style="font-size:9px;color:var(--tm);display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:3px">
+      <span>🟡 Y=Yellow</span><span>🟠 WS=Warm Red</span><span>🔴 R=Red</span>
+      <span>🩷 RR=Rubine Red</span><span>🔵 B=Blue 072</span><span>🟣 V=Violet</span>
+      <span>🟢 G=Green</span><span>🔷 RF=Reflex Blue</span><span>⬛ BK=Black</span>
+      <span>🔶 TR=Transparent</span><span>⬜ WW=Warm White</span>
+    </div>
+    ${related.length?`<div class="sec">Relacionados · ${c.family}</div><div class="rg">${rh}</div>`:''}`;
+  CM();
+}
+function CM(){
+  const c=selColor;if(!c)return;
+  const a=parseFloat(document.getElementById('cg')?.value)||500;
+  const u=document.getElementById('cu')?.value||'g';
+  const t=c.formula.reduce((s,f)=>s+f.p,0);
+  const el=document.getElementById('cres');if(!el)return;
+  el.innerHTML=c.formula.map(f=>`<div class="cir"><span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${IC[f.ink]||'#888'};margin-right:4px;vertical-align:middle"></span>Base ${f.ink}</span><strong>${(f.p/t*a).toFixed(1)} ${u}</strong></div>`).join('');
+}
+document.getElementById('srch').addEventListener('input',renderList);
+renderSys();renderList();
+// IA
+let b64=null,sHex='#888888';
+function UP(e){
+  const file=e.target.files[0];if(!file)return;
+  const rd=new FileReader();
+  rd.onload=ev=>{
+    const img=document.getElementById('pv');
+    img.src=ev.target.result;img.style.display='block';
+    b64=ev.target.result.split(',')[1];
+    EDC(ev.target.result);
+    document.getElementById('ba').disabled=false;
+  };rd.readAsDataURL(file);
+}
+function EDC(du){
+  const cv=document.createElement('canvas'),ctx=cv.getContext('2d'),img=new Image();
+  img.onload=()=>{
+    cv.width=80;cv.height=80;ctx.drawImage(img,0,0,80,80);
+    const d=ctx.getImageData(20,20,40,40).data;let r=0,g=0,b=0,n=0;
+    for(let i=0;i<d.length;i+=4){const l=0.299*d[i]+0.587*d[i+1]+0.114*d[i+2];if(l>20&&l<235){r+=d[i];g+=d[i+1];b+=d[i+2];n++;}}
+    if(!n){r=g=b=128;n=1;}
+    r=Math.round(r/n);g=Math.round(g/n);b=Math.round(b/n);
+    sHex=r2h(r,g,b);
+    document.getElementById('sp').style.background=sHex;
+    document.getElementById('sh').textContent=sHex.toUpperCase();
+    document.getElementById('sr').textContent=`RGB ${r}, ${g}, ${b}`;
+  };img.src=du;
+}
+function SM(h){
+  sHex=h;const{r,g,b}=h2r(h);
+  document.getElementById('sp').style.background=h;
+  document.getElementById('sh').textContent=h.toUpperCase();
+  document.getElementById('sr').textContent=`RGB ${r}, ${g}, ${b}`;
+  document.getElementById('ba').disabled=false;
+}
+function TM(h,n=5){return PANTONE_DB.map(c=>({...c,delta:dE(h,c.hex)})).sort((a,b)=>a.delta-b.delta).slice(0,n);}
+function QM(){
+  if(sHex==='#888888'){toast('Sube una foto o selecciona color manual');return;}
+  RM(TM(sHex,6),'⚡ Comparación rápida — todos los sistemas',sHex);
+}
+function RM(matches,title,ih){
+  document.getElementById('rs2').textContent=title;
+  const{r,g,b}=h2r(ih);
+  const sc=SYS_COLORS;
+  const ib=`<div style="display:flex;align-items:center;gap:6px;margin-bottom:9px;padding:6px;background:var(--s2);border-radius:5px;">
+    <div style="width:28px;height:28px;border-radius:4px;background:${ih};border:1px solid rgba(255,255,255,.1);flex-shrink:0;"></div>
+    <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600">${ih.toUpperCase()}</div>
+    <div style="font-size:8px;color:var(--tm)">RGB ${r},${g},${b}</div></div>
+  </div>`;
+  const mh=matches.map((m,i)=>{
+    const q=m.delta<3?'🟢':m.delta<6?'🟡':m.delta<12?'🟠':'🔴';
+    const bC=m.delta<3?'#40c880':m.delta<6?'#e8c840':m.delta<12?'#ff8040':'#e84060';
+    const fs=m.formula.slice(0,3).map(f=>`${f.ink}:${f.p}`).join('·');
+    const sColor=sc[m.sys]||'var(--ac)';
+    return`<div class="mc2">
+      <div class="ms" style="background:${m.hex}"></div>
+      <div class="mi">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span class="mn">${['🏆','🥈','🥉','4.','5.','6.'][i]} ${m.id}</span>
+          <span style="font-size:8px;color:var(--tm)">ΔE ${m.delta.toFixed(1)} ${q}</span>
+        </div>
+        <span style="font-size:8px;padding:1px 4px;border-radius:3px;background:${sColor}20;color:${sColor};border:1px solid ${sColor}40;font-weight:700">${m.sys}</span>
+        <div class="db" style="margin-top:3px"><div class="df" style="width:${Math.max(0,100-m.delta*4)}%;background:${bC}"></div></div>
+        <div class="mf">${fs}</div>
+        <button class="mb" onclick="SG('${m.id.replace(/'/g,"\\'").replace(/"/g,'\\"')}')">Ver fórmula →</button>
+      </div>
+    </div>`;
+  }).join('');
+  document.getElementById('ar').innerHTML=ib+mh;
+}
+function SG(id){
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.getElementById('p1').classList.add('on');
+  document.querySelector('.tab').classList.add('on');
+  SC(id);
+}
+async function AI(){
+  if(!b64&&sHex==='#888888'){toast('Sube una foto primero');return;}
+  document.getElementById('ba').disabled=true;
+  document.getElementById('ar').innerHTML='<div class="al"><div class="spin">⚙️</div><br>Analizando contra 500+ colores...</div>';
+  const lm=TM(sHex,6);
+  try{
+    const msgs=[];
+    if(b64){
+      msgs.push({role:'user',content:[
+        {type:'image',source:{type:'base64',media_type:'image/jpeg',data:b64}},
+        {type:'text',text:`Experto colorista flexografía. Analiza esta muestra impresa.\nColor detectado: ${sHex.toUpperCase()}\nTop coincidencias (sistemas Pantone/RAL/NCS/CSS):\n${lm.map((m,i)=>`${i+1}. ${m.sys} ${m.id} ΔE:${m.delta.toFixed(2)}`).join('\n')}\n\nResponde en español:\n1. Mejor coincidencia y sistema recomendado\n2. Factores visuales en la imagen\n3. Consejos de mezcla para flexografía\n4. Problemas de calidad si los hay`}
+      ]});
+    } else {
+      msgs.push({role:'user',content:`Experto colorista. Color: ${sHex.toUpperCase()}. Top coincidencias: ${lm.map((m,i)=>`${m.sys} ${m.id} ΔE:${m.delta.toFixed(2)}`).join(', ')}. Recomienda el mejor y da consejos de mezcla en flexografía. Español.`});
+    }
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,messages:msgs})});
+    const d=await r.json();
+    const at=d.content?.map(b=>b.text||'').join('')||'Sin respuesta';
+    const{r:rr,g:gg,b:bb}=h2r(sHex);
+    const ib=`<div style="display:flex;align-items:center;gap:6px;margin-bottom:9px;padding:6px;background:var(--s2);border-radius:5px;">
+      <div style="width:28px;height:28px;border-radius:4px;background:${sHex};border:1px solid rgba(255,255,255,.1);flex-shrink:0;"></div>
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600">${sHex.toUpperCase()}</div>
+      <div style="font-size:8px;color:var(--tm)">RGB ${rr},${gg},${bb}</div></div>
+    </div>`;
+    const sc=SYS_COLORS;
+    const mh=lm.slice(0,3).map((m,i)=>{
+      const sColor=sc[m.sys]||'var(--ac)';
+      return`<div class="mc2" style="cursor:pointer" onclick="SG('${m.id.replace(/'/g,"\\'").replace(/"/g,'\\"')}')">
+        <div class="ms" style="background:${m.hex}"></div>
+        <div class="mi">
+          <div style="display:flex;justify-content:space-between"><span class="mn">${['🏆','🥈','🥉'][i]} ${m.id}</span><span style="font-size:8px;color:var(--tm)">ΔE ${m.delta.toFixed(1)}</span></div>
+          <span style="font-size:8px;padding:1px 4px;border-radius:3px;background:${sColor}20;color:${sColor};border:1px solid ${sColor}40;font-weight:700">${m.sys}</span>
+          <div class="mf" style="margin-top:3px">${m.formula.slice(0,3).map(f=>`${f.ink}:${f.p}`).join('·')}</div>
+          <div style="font-size:8px;color:var(--ac);margin-top:2px">Toca → ver fórmula</div>
+        </div>
+      </div>`;
+    }).join('');
+    const ab=`<div style="background:rgba(160,96,232,.08);border:1px solid rgba(160,96,232,.25);border-radius:6px;padding:9px;margin-top:8px"><div style="font-size:8px;font-weight:600;color:var(--pu);margin-bottom:6px;letter-spacing:1px">🤖 ANÁLISIS IA</div><div style="font-size:10px;line-height:1.7;color:var(--tx);white-space:pre-wrap">${at}</div></div>`;
+    document.getElementById('rs2').textContent='Análisis IA · Todos los sistemas';
+    document.getElementById('ar').innerHTML=ib+mh+ab;
+  }catch(e){
+    RM(lm,'Error IA — mostrando comparación local',sHex);
+  }
+  document.getElementById('ba').disabled=false;
+}
+// BARRIDO
+const ZN=['Inicio','Zona 2','Zona 3','Zona 4','Zona 5','Final'];
+const ZD=Array(6).fill(null).map(()=>({img:null,b64:null,hex:null}));
+function RZG(){
+  document.getElementById('zg').innerHTML=ZN.map((n,i)=>`
+    <div class="zc${ZD[i].img?' ok':''}" id="z${i}">
+      <input type="file" accept="image/*" onchange="LZ(${i},event)">
+      ${ZD[i].img?`<img src="${ZD[i].img}" alt="${n}"><div class="zl">${n}</div>`:`<div class="za"><div class="pl">+</div><div>${n}</div></div>`}
+    </div>`).join('');
+}
+function LZ(i,e){
+  const file=e.target.files[0];if(!file)return;
+  const rd=new FileReader();
+  rd.onload=ev=>{
+    ZD[i].img=ev.target.result;ZD[i].b64=ev.target.result.split(',')[1];
+    const cv=document.createElement('canvas'),ctx=cv.getContext('2d'),img=new Image();
+    img.onload=()=>{
+      cv.width=60;cv.height=60;ctx.drawImage(img,0,0,60,60);
+      const d=ctx.getImageData(10,10,40,40).data;let r=0,g=0,b=0,n=0;
+      for(let j=0;j<d.length;j+=4){const l=0.299*d[j]+0.587*d[j+1]+0.114*d[j+2];if(l>20&&l<235){r+=d[j];g+=d[j+1];b+=d[j+2];n++;}}
+      if(!n){r=g=b=128;n=1;}
+      ZD[i].hex=r2h(Math.round(r/n),Math.round(g/n),Math.round(b/n));
+      RZG();DBC();
+    };img.src=ev.target.result;
+  };rd.readAsDataURL(file);
+}
+function DBC(){
+  const cv=document.getElementById('bc'),ctx=cv.getContext('2d');
+  const lz=ZD.filter(z=>z.hex);if(!lz.length)return;
+  document.getElementById('co').style.display='none';
+  cv.width=cv.offsetWidth||400;cv.height=80;
+  const W=cv.width,H=cv.height;ctx.clearRect(0,0,W,H);
+  if(lz.length>=2){
+    const lf=ZD.map((z,i)=>({hex:z.hex,i})).filter(z=>z.hex);
+    const gr=ctx.createLinearGradient(0,0,W,0);
+    lf.forEach((z,i)=>gr.addColorStop(i/(lf.length-1||1),z.hex));
+    ctx.fillStyle=gr;ctx.fillRect(0,0,W,H);
+    lf.forEach((z,i)=>{
+      const x=i/(lf.length-1||1)*W;
+      ctx.strokeStyle='rgba(255,255,255,.35)';ctx.lineWidth=1;ctx.setLineDash([3,3]);
+      ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();ctx.setLineDash([]);
+      ctx.fillStyle='rgba(0,0,0,.65)';ctx.fillRect(x-14,H-16,28,16);
+      ctx.fillStyle='#fff';ctx.font='8px monospace';ctx.textAlign='center';ctx.fillText(`Z${z.i+1}`,x,H-4);
+    });
+    document.getElementById('gsr').style.background=`linear-gradient(to right,${lf.map(z=>z.hex).join(',')})`;
+  } else {ctx.fillStyle=lz[0].hex;ctx.fillRect(0,0,W,H);}
+}
+function UTP(){
+  const v=document.getElementById('tp').value.trim().toUpperCase();
+  const m=PANTONE_DB.find(c=>c.id.toUpperCase()===v||c.id.toUpperCase().includes(v));
+  document.getElementById('ts').style.background=m?m.hex:'var(--s2)';
+  document.getElementById('ti').textContent=m?`${m.sys} · ${m.id}`:'—';
+}
+async function BAI(){
+  const lz=ZD.map((z,i)=>({...z,name:ZN[i],i})).filter(z=>z.hex);
+  if(lz.length<2){toast('Sube al menos 2 zonas');return;}
+  const tid=document.getElementById('tp').value.trim();
+  const tc=PANTONE_DB.find(c=>c.id.toUpperCase()===tid.toUpperCase());
+  document.getElementById('bres').innerHTML='<div class="al"><div class="spin">⚙️</div><br>Analizando variaciones...</div>';
+  const za=lz.map(z=>({...z,m:TM(z.hex,3),dt:tc?dE(z.hex,tc.hex):null}));
+  const zi=za.map(z=>`- ${z.name}: ${z.hex} ≈${z.m[0].sys}:${z.m[0].id}(ΔE=${z.m[0].delta.toFixed(2)})${z.dt!==null?` ΔE_obj=${z.dt.toFixed(2)}`:''}`).join('\n');
+  const ti2=tc?`Objetivo: ${tc.sys} ${tc.id} (${tc.hex}) Fórmula: ${tc.formula.map(f=>`${f.ink}:${f.p}`).join(', ')}`:'Sin objetivo';
+  try{
+    const rp=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1200,messages:[{role:'user',content:`Experto colorista flexografía. Barrido:\n${ti2}\nZonas:\n${zi}\n\nEn español: 1)Uniformidad barrido 2)Diagnóstico problemas(viscosidad,presión) 3)Ajuste fórmula por zona 4)Ajustes de máquina`}]})});
+    const rd=await rp.json();
+    const at=rd.content?.map(b=>b.text||'').join('')||'Sin respuesta';
+    const cb=tc?`<div style="display:flex;gap:6px;align-items:center;margin-bottom:9px;padding:7px;background:var(--s2);border-radius:5px;flex-wrap:wrap">
+      <span style="font-size:8px;color:var(--tm);width:100%">Zonas vs objetivo</span>
+      ${za.map(z=>`<div style="text-align:center"><div style="width:24px;height:24px;border-radius:3px;background:${z.hex};border:1px solid rgba(255,255,255,.1)"></div><div style="font-size:7px;color:var(--td);margin-top:1px">${z.name.slice(0,4)}</div></div>`).join('')}
+      <span style="color:var(--td)">→</span>
+      <div style="text-align:center"><div style="width:24px;height:24px;border-radius:3px;background:${tc.hex};border:2px solid var(--ac)"></div><div style="font-size:7px;color:var(--ac);margin-top:1px">Obj</div></div>
+    </div>`:'';
+    const zh=za.map(z=>{
+      const q=z.dt===null?'—':z.dt<3?'✅':z.dt<8?'⚠️':'❌';
+      const sc=SYS_COLORS[z.m[0].sys]||'var(--ac)';
+      return`<div class="za2"><div class="zh">
+        <div class="zs" style="background:${z.hex}"></div>
+        <div><div style="font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600">${z.name} · ${z.m[0].id}</div>
+        <span style="font-size:7px;padding:1px 3px;border-radius:2px;background:${sc}20;color:${sc};font-weight:700">${z.m[0].sys}</span></div>
+        <div style="margin-left:auto;font-size:9px">${q}${z.dt!==null?' ΔE '+z.dt.toFixed(1):''}</div>
+      </div>
+      <div style="font-size:8px;color:var(--tm);font-family:'JetBrains Mono',monospace">${z.hex.toUpperCase()} · ${z.m[0].formula.slice(0,4).map(f=>`${f.ink}:${f.p}`).join('+')} </div>
+      </div>`;
+    }).join('');
+    const ab=`<div style="background:rgba(160,96,232,.08);border:1px solid rgba(160,96,232,.25);border-radius:6px;padding:9px;margin-top:9px"><div style="font-size:8px;font-weight:600;color:var(--pu);margin-bottom:6px;letter-spacing:1px">🤖 DIAGNÓSTICO IA</div><div style="font-size:10px;line-height:1.7;color:var(--tx);white-space:pre-wrap">${at}</div></div>`;
+    document.getElementById('bs').textContent=`${za.length} zonas analizadas`;
+    document.getElementById('bres').innerHTML=cb+zh+ab;
+  }catch(e){
+    document.getElementById('bres').innerHTML=`<div style="color:var(--rd);font-size:10px;padding:10px">Error: ${e.message}</div>`;
+  }
+}
+RZG();
+</script>
+</body>
+</html>
